@@ -14,28 +14,14 @@ function ProtectedRoute({ children }) {
 
 export default function App() {
   return (
-    <div style={{ minHeight: "100vh", background: "var(--hh-dark)" }}>
+    <div style={{ minHeight: "100%", background: "#0D0D0D" }}>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route
-          path="/submit"
-          element={
-            <ProtectedRoute>
-              <Submit />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/profile"
-          element={
-            <ProtectedRoute>
-              <Profile />
-            </ProtectedRoute>
-          }
-        />
+        <Route path="/submit" element={<ProtectedRoute><Submit /></ProtectedRoute>} />
+        <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>
