@@ -65,6 +65,19 @@ export default function Home() {
 
   const activeCount = deals.filter(d => d.status === "active").length;
 
+ const neighborhoodCoords = {
+    "6th Street": { lat: 30.2685, lng: -97.7398 },
+    "Rainey Street": { lat: 30.2588, lng: -97.7392 },
+    "Red River": { lat: 30.2677, lng: -97.7362 },
+    "East Austin": { lat: 30.2641, lng: -97.7198 },
+    "West Campus": { lat: 30.2881, lng: -97.7401 },
+    "Downtown": { lat: 30.2658, lng: -97.7452 },
+    "South Congress": { lat: 30.2499, lng: -97.7502 },
+    "North Loop": { lat: 30.3147, lng: -97.7185 },
+    "Domain": { lat: 30.4017, lng: -97.7267 },
+    "Cedar Park": { lat: 30.5052, lng: -97.8203 },
+  };
+
   const pick = (deal) => {
     setSelected(deal);
     if (map && deal.lat) {
@@ -159,7 +172,7 @@ export default function Home() {
         <div style={{ fontSize: "10px", fontWeight: 700, color: "#444", letterSpacing: "1px", textTransform: "uppercase", marginBottom: "10px" }}>Browse by Neighborhood</div>
         <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
           {["6th Street", "Rainey Street", "Red River", "East Austin", "West Campus", "Downtown", "South Congress", "North Loop", "Domain", "Cedar Park"].map((n) => (
-            <span key={n} onClick={() => setSearch(n)} style={{ padding: "6px 14px", borderRadius: "20px", fontSize: "11px", fontWeight: 600, background: "rgba(212,160,23,0.06)", border: "1px solid rgba(212,160,23,0.15)", color: "#888", cursor: "pointer" }}>{n}</span>
+            <span key={n} onClick={() => { setSearch(n); const coords = neighborhoodCoords[n]; if (coords && map) { map.panTo(coords); map.setZoom(14); } }} style={{ padding: "6px 14px", borderRadius: "20px", fontSize: "11px", fontWeight: 600, background: search === n ? "#D4A017" : "rgba(212,160,23,0.06)", border: `1px solid ${search === n ? "#D4A017" : "rgba(212,160,23,0.15)"}`, color: search === n ? "#000" : "#888", cursor: "pointer" }}>{n}</span>
           ))}
         </div>
       </div>
