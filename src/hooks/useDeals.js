@@ -1,54 +1,22 @@
 import { useState, useEffect } from "react";
-import { db } from "../lib/firebase";
-import {
-  collection,
-  query,
-  orderBy,
-  onSnapshot,
-  where,
-} from "firebase/firestore";
 
-export function useDeals(filterActive = false) {
-  const [deals, setDeals] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+const STORED_KEY = "hh_deals";
 
-  useEffect(() => {
-    let q;
-
-    if (filterActive) {
-      q = query(
-        collection(db, "deals"),
-        where("approved", "==", true),
-        orderBy("createdAt", "desc"),
-      );
-    } else {
-      q = query(
-        collection(db, "deals"),
-        where("approved", "==", true),
-        orderBy("createdAt", "desc"),
-      );
+export function useDeals() {
+  const [deals, setDeals] = useState(() => {
+    try {
+      const saved = localStorage.getItem(STORED_KEY);
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
     }
+  });
 
-    const unsub = onSnapshot(
-      q,
-      (snapshot) => {
-        const data = snapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        setDeals(data);
-        setLoading(false);
-      },
-      (err) => {
-        console.error("Firestore error:", err);
-        setError(err.message);
-        setLoading(false);
-      },
-    );
+  const addDeal = (deal) => {
+    const updated = [...deals, { ...deal, id: Date.now().toString(), approved: true, status: "upcoming" }];
+    setDeals(updated);
+    localStorage.setItem(STORED_KEY, JSON.stringify(updated));
+  };
 
-    return () => unsub();
-  }, [filterActive]);
-
-  return { deals, loading, error };
+  return { deals, loading: false, error: null, addDeal };
 }
