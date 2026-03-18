@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const STORED_KEY = "hh_deals";
 
 export function useDeals() {
-  const [deals, setDeals] = useState(() => {
+  const [userDeals, setUserDeals] = useState(() => {
     try {
       const saved = localStorage.getItem(STORED_KEY);
       return saved ? JSON.parse(saved) : [];
@@ -13,10 +13,15 @@ export function useDeals() {
   });
 
   const addDeal = (deal) => {
-    const updated = [...deals, { ...deal, id: Date.now().toString(), approved: true, status: "upcoming" }];
-    setDeals(updated);
+    const updated = [...userDeals, {
+      ...deal,
+      id: Date.now().toString(),
+      approved: true,
+      status: "upcoming",
+    }];
+    setUserDeals(updated);
     localStorage.setItem(STORED_KEY, JSON.stringify(updated));
   };
 
-  return { deals, loading: false, error: null, addDeal };
+  return { deals: userDeals, loading: false, error: null, addDeal };
 }

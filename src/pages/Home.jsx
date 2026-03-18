@@ -19,29 +19,197 @@ const mapStyles = [
 ];
 
 const SEED_DEALS = [
-  { id: "1", name: "Hole in the Wall", neighborhood: "West Campus", icon: "🎸", status: "active", hours: "4-7pm", specials: ["$3 Lone Stars", "$5 wells"], lat: 30.2881, lng: -97.7401 },
-  { id: "2", name: "Rainey St Bar", neighborhood: "Rainey Street", icon: "🍺", status: "active", hours: "3-6pm", specials: ["Half-off drafts", "$4 shots"], lat: 30.2588, lng: -97.7392 },
-  { id: "3", name: "Barbarella", neighborhood: "Red River", icon: "🍸", status: "upcoming", hours: "5-8pm", specials: ["$5 margaritas", "$4 Tecate"], lat: 30.2677, lng: -97.7362 },
-  { id: "4", name: "Emo's", neighborhood: "East 6th", icon: "🤘", status: "upcoming", hours: "4-7pm", specials: ["$2 PBR", "$4 wells"], lat: 30.2601, lng: -97.7218 },
-  { id: "5", name: "Jackalope", neighborhood: "6th Street", icon: "🦌", status: "ended", hours: "4-7pm", specials: ["$3 Shiner", "Half-off apps"], lat: 30.2692, lng: -97.7415 },
-  { id: "6", name: "Cactus Cafe", neighborhood: "UT Campus", icon: "🌵", status: "active", hours: "5-8pm", specials: ["$4 margaritas", "$3 Lone Star"], lat: 30.2849, lng: -97.7341 },
-  { id: "7", name: "The Liberty", neighborhood: "East Austin", icon: "🍕", status: "upcoming", hours: "4-6pm", specials: ["$2 off drafts", "Half-off pizza"], lat: 30.2641, lng: -97.7198 },
-  { id: "8", name: "Dizzy Rooster", neighborhood: "6th Street", icon: "🐓", status: "active", hours: "4-7pm", specials: ["$3 Lone Stars", "$2 off wells"], lat: 30.2685, lng: -97.7398 },
-  { id: "9", name: "Latchkey", neighborhood: "Downtown", icon: "🥃", status: "upcoming", hours: "5-7pm", specials: ["$6 cocktails", "$4 local drafts"], lat: 30.2658, lng: -97.7452 },
-  { id: "10", name: "Handlebar", neighborhood: "East Austin", icon: "🍻", status: "active", hours: "3-7pm", specials: ["$3 PBR", "$5 margaritas"], lat: 30.2612, lng: -97.7225 },
+  {
+    id: "1", name: "Hole in the Wall", neighborhood: "West Campus", icon: "🎸",
+    status: "active", hours: "3-8pm", address: "2538 Guadalupe St",
+    specials: ["Select drink specials", "Live music nightly"],
+    days: ["Mon","Tue","Wed","Thu","Fri","Sat"],
+    lat: 30.2881, lng: -97.7401,
+  },
+  {
+    id: "2", name: "Jackalope", neighborhood: "6th Street", icon: "🦌",
+    status: "active", hours: "2-7pm", address: "404 E 6th St",
+    specials: ["$2 tall boys", "$2 wells", "$4 margaritas"],
+    days: ["Mon","Tue","Wed","Thu","Fri"],
+    lat: 30.2692, lng: -97.7415,
+  },
+  {
+    id: "3", name: "Whisler's", neighborhood: "East 6th", icon: "🥃",
+    status: "upcoming", hours: "4-7pm", address: "1816 E 6th St",
+    specials: ["$7-9 cocktails"],
+    days: ["Mon","Tue","Wed","Thu","Fri"],
+    lat: 30.2612, lng: -97.7198,
+  },
+  {
+    id: "4", name: "Volstead Lounge", neighborhood: "East 6th", icon: "🎵",
+    status: "upcoming", hours: "5-7pm", address: "1500 E 6th St",
+    specials: ["$3 well cocktails", "$2 Lone Stars", "$6 classic cocktails"],
+    days: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
+    lat: 30.2618, lng: -97.7205,
+  },
+  {
+    id: "5", name: "Cheer Up Charlie's", neighborhood: "Red River", icon: "🏳️‍🌈",
+    status: "upcoming", hours: "6-8pm", address: "900 Red River St",
+    specials: ["$6 micheladas & margs & frozens", "$3 tall boys"],
+    days: ["Tue","Wed","Thu","Fri","Sat"],
+    lat: 30.2677, lng: -97.7362,
+  },
+  {
+    id: "6", name: "Las Perlas", neighborhood: "Downtown", icon: "🍹",
+    status: "upcoming", hours: "4-8pm", address: "405 E 7th St",
+    specials: ["$4 Carta Blanca", "$7 draft margarita", "$7 draft paloma"],
+    days: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
+    lat: 30.2658, lng: -97.7415,
+  },
+  {
+    id: "7", name: "Half Step", neighborhood: "Rainey Street", icon: "🍺",
+    status: "upcoming", hours: "4-7pm", address: "75 1/2 Rainey St",
+    specials: ["$8 select cocktails", "$2 off all draft beer"],
+    days: ["Mon","Tue","Wed","Thu","Fri"],
+    lat: 30.2588, lng: -97.7392,
+  },
+  {
+    id: "8", name: "Stagger Lee", neighborhood: "Rainey Street", icon: "🍖",
+    status: "upcoming", hours: "3-7pm", address: "87 Rainey St",
+    specials: ["$5 house wine & frozens", "$3 domestic beers & wells"],
+    days: ["Mon","Tue","Wed","Thu","Fri"],
+    lat: 30.2585, lng: -97.7388,
+  },
+  {
+    id: "9", name: "Banger's", neighborhood: "Rainey Street", icon: "🌭",
+    status: "upcoming", hours: "5-6pm", address: "79 Rainey St",
+    specials: ["$3 snacks", "$5 sausages", "$4 beer"],
+    days: ["Mon","Tue","Wed","Thu","Fri"],
+    lat: 30.2582, lng: -97.7385,
+  },
+  {
+    id: "10", name: "Crown & Anchor", neighborhood: "UT Campus", icon: "⚓",
+    status: "active", hours: "2-7pm", address: "2911 San Jacinto Blvd",
+    specials: ["Daily specials", "Extensive beer selection"],
+    days: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
+    lat: 30.2849, lng: -97.7341,
+  },
+  {
+    id: "11", name: "Black Sheep Lodge", neighborhood: "South Lamar", icon: "🍔",
+    status: "active", hours: "All day", address: "2108 S Lamar Blvd",
+    specials: ["Mon: $2 off TX pints", "Thu: $4 frozen margs", "Sun: $5 mimosas"],
+    days: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
+    lat: 30.2499, lng: -97.7502,
+  },
+  {
+    id: "12", name: "Lazarus Brewing", neighborhood: "East 6th", icon: "🍺",
+    status: "upcoming", hours: "4-6pm", address: "1902 E 6th St",
+    specials: ["$2 Time Machine lager", "$2 off wine/beer/frozens", "$2 bean & cheese tostadas"],
+    days: ["Mon","Tue","Wed","Thu"],
+    lat: 30.2628, lng: -97.7188,
+  },
+  {
+    id: "13", name: "Haymaker", neighborhood: "East Austin", icon: "🍸",
+    status: "active", hours: "All day", address: "2310 Manor Rd",
+    specials: ["All day every day specials", "Daily rotating deals"],
+    days: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
+    lat: 30.2641, lng: -97.7198,
+  },
+  {
+    id: "14", name: "The Cavalier", neighborhood: "East Austin", icon: "🥃",
+    status: "active", hours: "3-7pm", address: "2400 Webberville Rd",
+    specials: ["$1 off draft beer & wine", "$3 wells", "$7 frozens"],
+    days: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
+    lat: 30.2601, lng: -97.7178,
+  },
+  {
+    id: "15", name: "Hotel Vegas", neighborhood: "East 6th", icon: "🎸",
+    status: "upcoming", hours: "5-7pm", address: "1502 E 6th St",
+    specials: ["$6 classic cocktails", "$3 well cocktails", "$2 Lone Star tallboys"],
+    days: ["Mon","Tue","Wed","Thu","Fri"],
+    lat: 30.2622, lng: -97.7202,
+  },
+  {
+    id: "16", name: "Pelon's Tex-Mex", neighborhood: "Red River", icon: "🌮",
+    status: "upcoming", hours: "3-6pm", address: "802 Red River St",
+    specials: ["$4 draft Modelo", "$6 beer-and-shot combos"],
+    days: ["Mon","Tue","Wed","Thu","Fri"],
+    lat: 30.2671, lng: -97.7358,
+  },
+  {
+    id: "17", name: "Speakeasy Austin", neighborhood: "Downtown", icon: "🎷",
+    status: "upcoming", hours: "3-7pm", address: "412 Congress Ave",
+    specials: ["$2 off specialty cocktails, beer & wine"],
+    days: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
+    lat: 30.2665, lng: -97.7432,
+  },
+  {
+    id: "18", name: "Dumont's Down Low", neighborhood: "Downtown", icon: "🥃",
+    status: "upcoming", hours: "5-7pm", address: "214 W 4th St",
+    specials: ["$5-7 selected cocktails", "$3 Miller Lite & Lone Stars", "$5 house wine"],
+    days: ["Mon","Tue","Wed","Thu","Fri"],
+    lat: 30.2672, lng: -97.7458,
+  },
+  {
+    id: "19", name: "Güero's Taco Bar", neighborhood: "South Congress", icon: "🌮",
+    status: "upcoming", hours: "3-6pm", address: "1412 S Congress Ave",
+    specials: ["$5.50 classic margaritas", "$1 off domestic beers", "$1 off nachos & queso"],
+    days: ["Mon","Tue","Wed","Thu","Fri"],
+    lat: 30.2499, lng: -97.7502,
+  },
+  {
+    id: "20", name: "Gibson Street Bar", neighborhood: "South Lamar", icon: "🍺",
+    status: "upcoming", hours: "4-7pm", address: "1109 S Lamar Blvd",
+    specials: ["$5 wells", "$6 tequila & bourbon", "$5 draft beers"],
+    days: ["Mon","Tue","Wed","Thu","Fri"],
+    lat: 30.2545, lng: -97.7535,
+  },
+  {
+    id: "21", name: "Sour Duck Market", neighborhood: "East Austin", icon: "🍔",
+    status: "upcoming", hours: "3-6pm", address: "1814 E MLK Jr Blvd",
+    specials: ["$6 single cheeseburger", "$6 palomas & daiquiris", "$3 Lone Star cans all day"],
+    days: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
+    lat: 30.2812, lng: -97.7145,
+  },
+  {
+    id: "22", name: "Revelry Kitchen & Bar", neighborhood: "East 6th", icon: "💽",
+    status: "upcoming", hours: "4-7pm", address: "1410 E 6th St",
+    specials: ["$2 off house cocktails & wines", "$1 off local beers", "$5 wells"],
+    days: ["Tue","Wed","Thu","Fri"],
+    lat: 30.2625, lng: -97.7195,
+  },
+  {
+    id: "23", name: "Il Brutto", neighborhood: "East 6th", icon: "🍕",
+    status: "upcoming", hours: "4-6pm", address: "1601 E 6th St",
+    specials: ["1/2 off all cocktails, wine & beer"],
+    days: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
+    lat: 30.2630, lng: -97.7192,
+  },
+  {
+    id: "24", name: "Clark's Oyster Bar", neighborhood: "Clarksville", icon: "🦪",
+    status: "upcoming", hours: "3-5pm", address: "1200 W 6th St",
+    specials: ["Half off martinis & burgers", "$5 oyster shooters & drafts"],
+    days: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
+    lat: 30.2771, lng: -97.7558,
+  },
+  {
+    id: "25", name: "Verbena", neighborhood: "West 6th", icon: "🍸",
+    status: "upcoming", hours: "3-6pm", address: "612 W 6th St",
+    specials: ["$10 flatbreads", "$2 fresh oysters", "$5 martinis", "$3 rotating beer"],
+    days: ["Mon","Tue","Wed","Thu","Fri"],
+    lat: 30.2745, lng: -97.7515,
+  },
 ];
 
 const mc = { active: "#3DD68C", upcoming: "#F5C842", ended: "#888" };
 const sl = { active: "LIVE", upcoming: "SOON", ended: "ENDED" };
+
+const TODAY_DAYS = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
 
 export default function Home() {
   const [filter, setFilter] = useState("all");
   const [search, setSearch] = useState("");
   const [selected, setSelected] = useState(null);
   const [map, setMap] = useState(null);
+  const [activeDay, setActiveDay] = useState("all");
 
-  const { deals: fd } = useDeals();
-  const deals = fd.length > 0 ? fd : SEED_DEALS;
+  const { deals: userDeals } = useDeals();
+  const deals = [...SEED_DEALS, ...userDeals];
 
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY || "",
@@ -53,26 +221,37 @@ export default function Home() {
     const mf =
       filter === "all" ? true :
       filter === "active" ? d.status === "active" :
-      filter === "beer" ? d.specials?.some(s => ["beer","draft","shiner","pbr"].some(k => s.toLowerCase().includes(k))) :
-      filter === "cocktails" ? d.specials?.some(s => ["cocktail","margarita","well"].some(k => s.toLowerCase().includes(k))) :
-      filter === "food" ? d.specials?.some(s => ["app","nacho","taco","pizza","food"].some(k => s.toLowerCase().includes(k))) :
+      filter === "beer" ? d.specials?.some(s => ["beer","draft","shiner","pbr","lager","pint"].some(k => s.toLowerCase().includes(k))) :
+      filter === "cocktails" ? d.specials?.some(s => ["cocktail","margarita","well","frozen","spritz"].some(k => s.toLowerCase().includes(k))) :
+      filter === "food" ? d.specials?.some(s => ["app","nacho","taco","pizza","food","burger","oyster","snack"].some(k => s.toLowerCase().includes(k))) :
       true;
+
     const ms = search === "" ? true :
       d.name.toLowerCase().includes(search.toLowerCase()) ||
-      d.neighborhood.toLowerCase().includes(search.toLowerCase());
-    return mf && ms;
+      d.neighborhood.toLowerCase().includes(search.toLowerCase()) ||
+      d.specials?.some(s => s.toLowerCase().includes(search.toLowerCase()));
+
+    const md = activeDay === "all" ? true :
+      d.days ? d.days.includes(activeDay) : true;
+
+    return mf && ms && md;
   });
 
-  const activeCount = deals.filter(d => d.status === "active").length;
+  const activeCount = filtered.filter(d => d.status === "active").length;
 
- const neighborhoodCoords = {
+  const neighborhoodCoords = {
     "6th Street": { lat: 30.2685, lng: -97.7398 },
-    "Rainey Street": { lat: 30.2588, lng: -97.7392 },
+    "Rainey Street": { lat: 30.2585, lng: -97.7388 },
     "Red River": { lat: 30.2677, lng: -97.7362 },
     "East Austin": { lat: 30.2641, lng: -97.7198 },
+    "East 6th": { lat: 30.2625, lng: -97.7195 },
     "West Campus": { lat: 30.2881, lng: -97.7401 },
+    "UT Campus": { lat: 30.2849, lng: -97.7341 },
     "Downtown": { lat: 30.2658, lng: -97.7452 },
     "South Congress": { lat: 30.2499, lng: -97.7502 },
+    "South Lamar": { lat: 30.2545, lng: -97.7535 },
+    "Clarksville": { lat: 30.2771, lng: -97.7558 },
+    "West 6th": { lat: 30.2745, lng: -97.7515 },
     "North Loop": { lat: 30.3147, lng: -97.7185 },
     "Domain": { lat: 30.4017, lng: -97.7267 },
     "Cedar Park": { lat: 30.5052, lng: -97.8203 },
@@ -86,7 +265,12 @@ export default function Home() {
     }
   };
 
-  const card = { background: "#161616", border: "1px solid rgba(212,160,23,0.15)", borderRadius: "12px", padding: "14px 18px" };
+  const card = {
+    background: "#161616",
+    border: "1px solid rgba(212,160,23,0.15)",
+    borderRadius: "12px",
+    padding: "14px 18px",
+  };
 
   return (
     <div style={{ background: "#0D0D0D", color: "#F0EDE6", padding: "12px 16px", display: "flex", flexDirection: "column", gap: "10px" }}>
@@ -94,7 +278,12 @@ export default function Home() {
       {/* 1 -- SEARCH */}
       <div style={{ display: "flex", alignItems: "center", gap: "8px", background: "#161616", border: "1px solid rgba(212,160,23,0.2)", borderRadius: "10px", padding: "9px 14px" }}>
         <span style={{ color: "#444" }}>⌕</span>
-        <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search bars, deals, neighborhoods..." style={{ background: "transparent", border: "none", color: "#F0EDE6", fontSize: "13px", flex: 1, outline: "none" }} />
+        <input
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+          placeholder="Search bars, deals, neighborhoods..."
+          style={{ background: "transparent", border: "none", color: "#F0EDE6", fontSize: "13px", flex: 1, outline: "none" }}
+        />
         {search && <span onClick={() => setSearch("")} style={{ color: "#444", cursor: "pointer" }}>✕</span>}
       </div>
 
@@ -104,34 +293,54 @@ export default function Home() {
           <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#3DD68C", display: "inline-block", animation: "pulse 1.5s infinite" }} />
           {activeCount} live now
         </div>
-        <span style={{ fontSize: "11px", color: "#555" }}>{filtered.length} spots tonight</span>
+        <span style={{ fontSize: "11px", color: "#555" }}>{filtered.length} spots · {activeDay === "all" ? "every day" : activeDay}</span>
       </div>
 
-      {/* 3 -- FILTERS */}
-      <FilterBar active={filter} onChange={setFilter} />
+      {/* 3 -- FILTERS + DAY */}
+      <FilterBar
+        active={filter}
+        onChange={setFilter}
+        activeDay={activeDay}
+        onDayChange={setActiveDay}
+      />
 
       {/* 4 -- HORIZONTAL CARDS */}
       <div style={{ display: "flex", gap: "10px", overflowX: "auto", paddingBottom: "4px", scrollbarWidth: "none" }}>
-        {filtered.map((deal) => (
-          <div key={deal.id} onClick={() => pick(deal)} style={{ width: "185px", flexShrink: 0, background: selected?.id === deal.id ? "rgba(212,160,23,0.08)" : "#161616", border: `1px solid ${selected?.id === deal.id ? "#D4A017" : "rgba(212,160,23,0.15)"}`, borderRadius: "10px", padding: "12px", cursor: "pointer" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "5px" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "7px" }}>
-                <span style={{ fontSize: "16px" }}>{deal.icon}</span>
-                <div>
-                  <div style={{ fontSize: "12px", fontWeight: 700, color: "#F0EDE6" }}>{deal.name}</div>
-                  <div style={{ fontSize: "10px", color: "#555" }}>{deal.neighborhood}</div>
-                </div>
-              </div>
-              <span style={{ fontSize: "9px", fontWeight: 700, color: mc[deal.status] }}>{sl[deal.status]}</span>
-            </div>
-            <div style={{ fontSize: "10px", color: "#666", marginBottom: "6px" }}>{deal.hours}</div>
-            <div style={{ display: "flex", gap: "4px", flexWrap: "wrap" }}>
-              {deal.specials?.slice(0, 2).map((s, i) => (
-                <span key={i} style={{ fontSize: "9px", padding: "2px 6px", borderRadius: "20px", fontWeight: 600, background: i === 0 ? "rgba(212,160,23,0.15)" : "rgba(61,214,140,0.1)", color: i === 0 ? "#F5C842" : "#3DD68C" }}>{s}</span>
-              ))}
-            </div>
+        {filtered.length === 0 ? (
+          <div style={{ color: "#555", fontSize: "13px", padding: "10px 0", whiteSpace: "nowrap" }}>
+            No deals match -- try a different day or filter.
           </div>
-        ))}
+        ) : (
+          filtered.map((deal) => (
+            <div
+              key={deal.id}
+              onClick={() => pick(deal)}
+              style={{
+                width: "185px", flexShrink: 0,
+                background: selected?.id === deal.id ? "rgba(212,160,23,0.08)" : "#161616",
+                border: `1px solid ${selected?.id === deal.id ? "#D4A017" : "rgba(212,160,23,0.15)"}`,
+                borderRadius: "10px", padding: "12px", cursor: "pointer",
+              }}
+            >
+              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "5px" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "7px" }}>
+                  <span style={{ fontSize: "16px" }}>{deal.icon}</span>
+                  <div>
+                    <div style={{ fontSize: "12px", fontWeight: 700, color: "#F0EDE6", lineHeight: 1.2 }}>{deal.name}</div>
+                    <div style={{ fontSize: "10px", color: "#555" }}>{deal.neighborhood}</div>
+                  </div>
+                </div>
+                <span style={{ fontSize: "9px", fontWeight: 700, color: mc[deal.status] }}>{sl[deal.status]}</span>
+              </div>
+              <div style={{ fontSize: "10px", color: "#666", marginBottom: "6px" }}>{deal.hours}</div>
+              <div style={{ display: "flex", gap: "4px", flexWrap: "wrap" }}>
+                {deal.specials?.slice(0, 2).map((s, i) => (
+                  <span key={i} style={{ fontSize: "9px", padding: "2px 6px", borderRadius: "20px", fontWeight: 600, background: i === 0 ? "rgba(212,160,23,0.15)" : "rgba(61,214,140,0.1)", color: i === 0 ? "#F5C842" : "#3DD68C" }}>{s}</span>
+                ))}
+              </div>
+            </div>
+          ))
+        )}
       </div>
 
       {/* 5 -- MAP */}
@@ -145,8 +354,18 @@ export default function Home() {
             onLoad={onMapLoad}
           >
             {filtered.map((deal) => deal.lat && (
-              <Marker key={deal.id} position={{ lat: deal.lat, lng: deal.lng }} onClick={() => pick(deal)}
-                icon={{ path: window.google.maps.SymbolPath.CIRCLE, scale: selected?.id === deal.id ? 14 : deal.status === "active" ? 10 : 7, fillColor: mc[deal.status] || "#888", fillOpacity: 1, strokeColor: selected?.id === deal.id ? "#fff" : "#000", strokeWeight: selected?.id === deal.id ? 3 : 2 }}
+              <Marker
+                key={deal.id}
+                position={{ lat: deal.lat, lng: deal.lng }}
+                onClick={() => pick(deal)}
+                icon={{
+                  path: window.google.maps.SymbolPath.CIRCLE,
+                  scale: selected?.id === deal.id ? 14 : deal.status === "active" ? 10 : 7,
+                  fillColor: mc[deal.status] || "#888",
+                  fillOpacity: 1,
+                  strokeColor: selected?.id === deal.id ? "#fff" : "#000",
+                  strokeWeight: selected?.id === deal.id ? 3 : 2,
+                }}
               />
             ))}
           </GoogleMap>
@@ -171,8 +390,24 @@ export default function Home() {
       <div style={card}>
         <div style={{ fontSize: "10px", fontWeight: 700, color: "#444", letterSpacing: "1px", textTransform: "uppercase", marginBottom: "10px" }}>Browse by Neighborhood</div>
         <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
-          {["6th Street", "Rainey Street", "Red River", "East Austin", "West Campus", "Downtown", "South Congress", "North Loop", "Domain", "Cedar Park"].map((n) => (
-            <span key={n} onClick={() => { setSearch(n); const coords = neighborhoodCoords[n]; if (coords && map) { map.panTo(coords); map.setZoom(14); } }} style={{ padding: "6px 14px", borderRadius: "20px", fontSize: "11px", fontWeight: 600, background: search === n ? "#D4A017" : "rgba(212,160,23,0.06)", border: `1px solid ${search === n ? "#D4A017" : "rgba(212,160,23,0.15)"}`, color: search === n ? "#000" : "#888", cursor: "pointer" }}>{n}</span>
+          {Object.keys(neighborhoodCoords).map((n) => (
+            <span
+              key={n}
+              onClick={() => {
+                setSearch(n);
+                const coords = neighborhoodCoords[n];
+                if (coords && map) { map.panTo(coords); map.setZoom(14); }
+              }}
+              style={{
+                padding: "6px 14px", borderRadius: "20px", fontSize: "11px", fontWeight: 600,
+                background: search === n ? "rgba(212,160,23,0.2)" : "rgba(212,160,23,0.06)",
+                border: `1px solid ${search === n ? "#D4A017" : "rgba(212,160,23,0.15)"}`,
+                color: search === n ? "#F5C842" : "#888",
+                cursor: "pointer",
+              }}
+            >
+              {n}
+            </span>
           ))}
         </div>
       </div>
