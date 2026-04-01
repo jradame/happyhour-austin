@@ -14,7 +14,7 @@ function ProtectedRoute({ children }) {
 
 export default function App() {
   return (
-    <div style={{ minHeight: "100%", background: "#0D0D0D" }}>
+    <div style={{ height: "100vh", overflow: "hidden", background: "#0D0D0D", display: "flex", flexDirection: "column" }}>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
