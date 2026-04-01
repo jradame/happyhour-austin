@@ -1,53 +1,47 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+  onAuthStateChanged,
+  updateProfile,
+} from "firebase/auth";
+import { auth, provider } from "../lib/firebase";
 
 const AuthContext = createContext();
 
-const DEMO_USERS = [
-  { uid: "1", email: "justin@happyhour.atx", displayName: "Justin Adame", password: "happyhour" }
-];
-
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(() => {
-    const saved = localStorage.getItem("hh_user");
-    return saved ? JSON.parse(saved) : null;
-  });
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const loginWithEmail = (email, password) => {
-    const found = DEMO_USERS.find(u => u.email === email && u.password === password);
-    if (found) {
-      const u = { uid: found.uid, email: found.email, displayName: found.displayName };
+  useEffect(() => {
+    const unsub = onAuthStateChanged(auth, (u) => {
       setUser(u);
-      localStorage.setItem("hh_user", JSON.stringify(u));
-      return Promise.resolve(u);
-    }
-    return Promise.reject(new Error("Invalid email or password."));
+      setLoading(false);
+    });
+    return unsub;
+  }, []);
+
+  const loginWithEmail = (email, password) =>
+    signInWithEmailAndPassword(auth, email, password);
+
+  const signupWithEmail = async (email, password) => {
+    const cred = await createUserWithEmailAndPassword(auth, email, password);
+    await updateProfile(cred.user, {
+      displayName: email.split("@")[0],
+    });
+    setUser({ ...cred.user, displayName: email.split("@")[0] });
+    return cred;
   };
 
-  const signupWithEmail = (email, password) => {
-    const exists = DEMO_USERS.find(u => u.email === email);
-    if (exists) return Promise.reject(new Error("auth/email-already-in-use"));
-    const u = { uid: Date.now().toString(), email, displayName: email.split("@")[0] };
-    setUser(u);
-    localStorage.setItem("hh_user", JSON.stringify(u));
-    return Promise.resolve(u);
-  };
+  const loginWithGoogle = () => signInWithPopup(auth, provider);
 
-  const loginWithGoogle = () => {
-    const u = { uid: "google-1", email: "justin@happyhour.atx", displayName: "Justin Adame" };
-    setUser(u);
-    localStorage.setItem("hh_user", JSON.stringify(u));
-    return Promise.resolve(u);
-  };
-
-  const logout = () => {
-    setUser(null);
-    localStorage.removeItem("hh_user");
-    return Promise.resolve();
-  };
+  const logout = () => signOut(auth);
 
   return (
-    <AuthContext.Provider value={{ user, loading: false, loginWithEmail, signupWithEmail, loginWithGoogle, logout }}>
-      {children}
+    <AuthContext.Provider value={{ user, loading, loginWithEmail, signupWithEmail, loginWithGoogle, logout }}>
+      {!loading && children}
     </AuthContext.Provider>
   );
 }
