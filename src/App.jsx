@@ -24,9 +24,9 @@ export default function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/submit" element={<ProtectedRoute><Submit /></ProtectedRoute>} />
         <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-        <Route path="*" element={<Navigate to="/" />} />
         <Route path="/about" element={<About />} />
-<Route path="/contact" element={<Contact />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>
   );
