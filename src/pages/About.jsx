@@ -1,59 +1,105 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function About() {
+  const [visible, setVisible] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const t = setTimeout(() => setVisible(true), 20);
+    return () => clearTimeout(t);
+  }, []);
+
+  const close = () => {
+    setVisible(false);
+    setTimeout(() => navigate("/"), 300);
+  };
+
   return (
-    <div style={{ background: "#0D0D0D", color: "#F0EDE6", minHeight: "calc(100svh - 60px)", padding: "48px 24px", maxWidth: "680px", margin: "0 auto" }}>
+    <div
+      onClick={close}
+      style={{
+        background: "rgba(0,0,0,0.7)",
+        minHeight: "calc(100svh - 60px)",
+        display: "flex",
+        alignItems: "flex-start",
+        justifyContent: "center",
+        padding: "32px 16px",
+      }}
+    >
+      <div
+        onClick={e => e.stopPropagation()}
+        style={{
+          background: "#161616",
+          border: "1px solid rgba(212,160,23,0.2)",
+          borderRadius: "16px",
+          padding: "32px 28px",
+          maxWidth: "580px",
+          width: "100%",
+          position: "relative",
+          transform: visible ? "translateY(0)" : "translateY(24px)",
+          opacity: visible ? 1 : 0,
+          transition: "transform 0.35s ease, opacity 0.35s ease",
+        }}
+      >
+        {/* X close button */}
+        <button
+          onClick={close}
+          style={{ position: "absolute", top: "16px", right: "16px", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(212,160,23,0.2)", borderRadius: "50%", width: "32px", height: "32px", cursor: "pointer", color: "#888", fontSize: "14px", display: "flex", alignItems: "center", justifyContent: "center" }}
+        >✕</button>
 
-      <div style={{ marginBottom: "40px" }}>
-        <div style={{ fontSize: "12px", fontWeight: 700, color: "#D4A017", letterSpacing: "2px", textTransform: "uppercase", marginBottom: "12px" }}>About</div>
-        <h1 style={{ fontSize: "36px", fontWeight: 900, color: "#F5C842", margin: "0 0 16px", lineHeight: 1.1 }}>HappyHour Austin</h1>
-        <p style={{ fontSize: "16px", color: "#888", lineHeight: 1.7, margin: 0 }}>
-          Austin's most up-to-date happy hour finder. Built by someone who has actually worked these bars.
-        </p>
-      </div>
+        {/* Header */}
+        <div style={{ marginBottom: "24px", paddingRight: "40px" }}>
+          <div style={{ fontSize: "11px", fontWeight: 700, color: "#D4A017", letterSpacing: "2px", textTransform: "uppercase", marginBottom: "8px" }}>About</div>
+          <h1 style={{ fontSize: "28px", fontWeight: 900, color: "#F5C842", margin: "0 0 10px", lineHeight: 1.1 }}>HappyHour Austin</h1>
+          <p style={{ fontSize: "14px", color: "#777", lineHeight: 1.7, margin: 0 }}>
+            Austin's most up-to-date happy hour finder. Built by someone who has actually worked these bars.
+          </p>
+        </div>
 
-      <div style={{ marginBottom: "36px" }}>
-        <h2 style={{ fontSize: "18px", fontWeight: 700, color: "#F0EDE6", marginBottom: "12px" }}>The Story</h2>
-        <p style={{ fontSize: "14px", color: "#777", lineHeight: 1.8, marginBottom: "14px" }}>
-          I'm Justin Adame -- Happy Hour -- and I've been working Austin bars since the early 2000s. Emo's, The Ritz, Liberty Bar, Jackalope, Dizzy Rooster, multiple SXSW runs. I know this scene from the inside.
-        </p>
-        <p style={{ fontSize: "14px", color: "#777", lineHeight: 1.8, marginBottom: "14px" }}>
-          Every existing happy hour app has the same problem -- stale data, no Austin identity, and built by people who've never actually worked a bar. HappyHour Austin is the version I would want to use: real bars, verified specials, built by someone with 20+ years of Austin bartending behind them.
-        </p>
-        <p style={{ fontSize: "14px", color: "#777", lineHeight: 1.8 }}>
-          The app is live, actively maintained, and growing. App Store launch is coming soon.
-        </p>
-      </div>
+        <div style={{ height: "1px", background: "rgba(212,160,23,0.1)", marginBottom: "24px" }} />
 
-      <div style={{ marginBottom: "36px" }}>
-        <h2 style={{ fontSize: "18px", fontWeight: 700, color: "#F0EDE6", marginBottom: "16px" }}>By the numbers</h2>
-        <div style={{ display: "flex", gap: "32px", flexWrap: "wrap" }}>
+        {/* Story */}
+        <div style={{ marginBottom: "24px" }}>
+          <h2 style={{ fontSize: "15px", fontWeight: 700, color: "#F0EDE6", marginBottom: "10px" }}>The Story</h2>
+          <p style={{ fontSize: "13px", color: "#777", lineHeight: 1.8, marginBottom: "10px" }}>
+            I'm Justin Adame -- Happy Hour -- and I've been working Austin bars since the early 2000s. Emo's, The Ritz, Liberty Bar, Jackalope, Dizzy Rooster, multiple SXSW runs. I know this scene from the inside.
+          </p>
+          <p style={{ fontSize: "13px", color: "#777", lineHeight: 1.8 }}>
+            Every existing happy hour app has the same problem -- stale data, no Austin identity, and built by people who've never worked a bar. HappyHour Austin is the version I would want to use.
+          </p>
+        </div>
+
+        <div style={{ height: "1px", background: "rgba(212,160,23,0.1)", marginBottom: "24px" }} />
+
+        {/* Stats */}
+        <div style={{ display: "flex", gap: "24px", flexWrap: "wrap", marginBottom: "24px" }}>
           {[
-            { num: "25+", label: "Verified Austin bars" },
-            { num: "20+", label: "Years in Austin bars" },
-            { num: "11", label: "Neighborhoods covered" },
+            { num: "25+", label: "Verified bars" },
+            { num: "20+", label: "Years in Austin" },
+            { num: "11", label: "Neighborhoods" },
           ].map(item => (
-            <div key={item.label}>
-              <div style={{ fontSize: "32px", fontWeight: 900, color: "#D4A017" }}>{item.num}</div>
-              <div style={{ fontSize: "12px", color: "#555", marginTop: "4px" }}>{item.label}</div>
+            <div key={item.label} style={{ textAlign: "center" }}>
+              <div style={{ fontSize: "26px", fontWeight: 900, color: "#D4A017" }}>{item.num}</div>
+              <div style={{ fontSize: "11px", color: "#555", marginTop: "2px" }}>{item.label}</div>
             </div>
           ))}
         </div>
-      </div>
 
-      <div style={{ marginBottom: "40px" }}>
-        <h2 style={{ fontSize: "18px", fontWeight: 700, color: "#F0EDE6", marginBottom: "12px" }}>Know a deal we're missing?</h2>
-        <p style={{ fontSize: "14px", color: "#777", lineHeight: 1.8, marginBottom: "16px" }}>
-          Every bar owner, bartender, and regular who submits a deal makes this better for everyone. Help Austin find the best happy hours.
-        </p>
-        <Link to="/submit" style={{ display: "inline-block", padding: "12px 24px", background: "#D4A017", color: "#000", borderRadius: "8px", fontSize: "14px", fontWeight: 700, textDecoration: "none" }}>
-          + Submit a Deal
-        </Link>
-      </div>
+        <div style={{ height: "1px", background: "rgba(212,160,23,0.1)", marginBottom: "24px" }} />
 
-      <div style={{ borderTop: "1px solid rgba(212,160,23,0.1)", paddingTop: "24px", display: "flex", gap: "16px" }}>
-        <Link to="/contact" style={{ fontSize: "13px", color: "#D4A017", textDecoration: "none" }}>Contact</Link>
-        <Link to="/" style={{ fontSize: "13px", color: "#555", textDecoration: "none" }}>Back to map</Link>
+        {/* CTA */}
+        <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", alignItems: "center" }}>
+          <Link to="/submit" style={{ padding: "10px 20px", background: "#D4A017", color: "#000", borderRadius: "8px", fontSize: "13px", fontWeight: 700, textDecoration: "none" }}>
+            + Submit a Deal
+          </Link>
+          <Link to="/contact" style={{ padding: "10px 20px", background: "transparent", color: "#888", borderRadius: "8px", fontSize: "13px", fontWeight: 600, textDecoration: "none", border: "1px solid rgba(212,160,23,0.2)" }}>
+            Contact
+          </Link>
+          <button onClick={close} style={{ marginLeft: "auto", fontSize: "12px", color: "#444", background: "transparent", border: "none", cursor: "pointer" }}>
+            Back to map →
+          </button>
+        </div>
       </div>
     </div>
   );
