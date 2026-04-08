@@ -8,6 +8,7 @@ import Submit from "./pages/Submit";
 import Profile from "./pages/Profile";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Admin from "./pages/Admin";
 
 function ProtectedRoute({ children }) {
   const { user } = useAuth();
@@ -26,7 +27,9 @@ export default function App() {
         <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/admin" element={<Admin />} />
         <Route path="*" element={<Navigate to="/" />} />
+        
       </Routes>
     </div>
   );
