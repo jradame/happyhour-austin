@@ -18,44 +18,67 @@ const mapStyles = [
 ];
 
 const SEED_DEALS = [
-  { id: "1", name: "Hole in the Wall", neighborhood: "West Campus", icon: "🎸", status: "active", hours: "3-8pm", address: "2538 Guadalupe St", specials: ["Select drink specials", "Live music nightly"], days: ["Mon","Tue","Wed","Thu","Fri","Sat"], lat: 30.2881, lng: -97.7401 },
-  { id: "2", name: "Jackalope", neighborhood: "6th Street", icon: "🦌", status: "active", hours: "2-7pm", address: "404 E 6th St", specials: ["$2 tall boys", "$2 wells", "$4 margaritas"], days: ["Mon","Tue","Wed","Thu","Fri"], lat: 30.2692, lng: -97.7415 },
-  { id: "3", name: "Whisler's", neighborhood: "East 6th", icon: "🥃", status: "upcoming", hours: "4-7pm", address: "1816 E 6th St", specials: ["$7-9 cocktails"], days: ["Mon","Tue","Wed","Thu","Fri"], lat: 30.2612, lng: -97.7198 },
-  { id: "4", name: "Volstead Lounge", neighborhood: "East 6th", icon: "🎵", status: "upcoming", hours: "5-7pm", address: "1500 E 6th St", specials: ["$3 well cocktails", "$2 Lone Stars", "$6 classic cocktails"], days: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"], lat: 30.2618, lng: -97.7205 },
-  { id: "5", name: "Cheer Up Charlie's", neighborhood: "Red River", icon: "🌈", status: "upcoming", hours: "6-8pm", address: "900 Red River St", specials: ["$6 micheladas & margs & frozens", "$3 tall boys"], days: ["Tue","Wed","Thu","Fri","Sat"], lat: 30.2677, lng: -97.7362 },
-  { id: "6", name: "Las Perlas", neighborhood: "Downtown", icon: "🍹", status: "upcoming", hours: "4-8pm", address: "405 E 7th St", specials: ["$4 Carta Blanca", "$7 draft margarita", "$7 draft paloma"], days: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"], lat: 30.2658, lng: -97.7415 },
-  { id: "7", name: "Half Step", neighborhood: "Rainey Street", icon: "🍺", status: "upcoming", hours: "4-7pm", address: "75 1/2 Rainey St", specials: ["$8 select cocktails", "$2 off all draft beer"], days: ["Mon","Tue","Wed","Thu","Fri"], lat: 30.2588, lng: -97.7392 },
-  { id: "8", name: "Stagger Lee", neighborhood: "Rainey Street", icon: "🍖", status: "upcoming", hours: "3-7pm", address: "87 Rainey St", specials: ["$5 house wine & frozens", "$3 domestic beers & wells"], days: ["Mon","Tue","Wed","Thu","Fri"], lat: 30.2585, lng: -97.7388 },
+  // WEST CAMPUS
+  { id: "1", name: "Hole in the Wall", neighborhood: "West Campus", icon: "🎸", status: "upcoming", hours: "3-8pm + all day Sun", address: "2538 Guadalupe St", specials: ["$3 Lone Star drafts", "$3.50 well spirits", "$4 Jim Beam/Jager", "$3 PBR cans all day"], days: ["Mon","Tue","Wed","Thu","Fri","Sun"], lat: 30.2881, lng: -97.7401 },
+
+  // EAST 6TH
+  { id: "3", name: "Whisler's", neighborhood: "East 6th", icon: "🥃", status: "upcoming", hours: "4-7pm", address: "1816 E 6th St", specials: ["$6 select cocktails (Old Fashioned, Aviation, Moscow Mule)", "$7-9 specialty cocktails"], days: ["Mon","Tue","Wed","Thu","Fri"], lat: 30.2612, lng: -97.7198 },
+  { id: "4", name: "Volstead Lounge", neighborhood: "East 6th", icon: "🎵", status: "upcoming", hours: "5-7pm", address: "1500 E 6th St", specials: ["$6 classic cocktails", "$2 Lone Star", "$3 well drinks"], days: ["Mon","Tue","Wed","Thu","Fri"], lat: 30.2618, lng: -97.7205 },
+  { id: "12", name: "Lazarus Brewing", neighborhood: "East 6th", icon: "🍺", status: "upcoming", hours: "4-6pm", address: "1902 E 6th St", specials: ["$2 Time Machine lager", "$2 off wine/beer/frozens", "$2 bean & cheese tostadas", "$2 off entrees over $10"], days: ["Mon","Tue","Wed","Thu"], lat: 30.2628, lng: -97.7188 },
+  { id: "22", name: "Revelry Kitchen & Bar", neighborhood: "East 6th", icon: "💽", status: "upcoming", hours: "All night Mon, 4-7pm Tue-Fri", address: "1410 E 6th St", specials: ["$2 off house cocktails & wines", "$1 off local beers", "$5 wells", "$5 appetizers"], days: ["Mon","Tue","Wed","Thu","Fri"], lat: 30.2625, lng: -97.7195 },
+
+  // EAST AUSTIN
+  { id: "14", name: "The Cavalier", neighborhood: "East Austin", icon: "🥃", status: "upcoming", hours: "3-7pm (Sun until 10pm)", address: "2400 Webberville Rd", specials: ["$1 off draft beer & wine", "$2 off snacks", "$3 well drinks", "$7 frozens", "Mon: 2-for-1 burgers"], days: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"], lat: 30.2601, lng: -97.7178 },
+  { id: "whitehorse", name: "White Horse", neighborhood: "East Austin", icon: "🐎", status: "active", hours: "All day every day", address: "500 Comal St", specials: ["$5 well drinks", "$3 Lone Star", "$6 Jameson", "$6 Altos tequila", "$6 Hornitos tequila", "Bomb Tacos truck on patio"], days: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"], lat: 30.2631, lng: -97.7228 },
+  { id: "libertybar", name: "Liberty Bar", neighborhood: "East Austin", icon: "🗽", status: "active", hours: "All day every day", address: "1618 E 6th St", specials: ["$1 off well & select drafts", "$1 off frozen drinks", "Rotating beer/shot combos"], days: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"], lat: 30.2623, lng: -97.7200 },
+  { id: "silvermedal", name: "Silver Medal", neighborhood: "East Austin", icon: "🥈", status: "active", hours: "All day every day", address: "Verify address on site", specials: ["$3 well drinks all day", "$1 off draft beers", "$4 Tito's, Camarena tequila & Old Grand Dad"], days: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"], lat: 30.2635, lng: -97.7215 },
+  { id: "fraziers", name: "Frazier's Long & Low", neighborhood: "East Austin", icon: "🍺", status: "upcoming", hours: "All day + Thu special", address: "Verify address on site", specials: ["$6.50 Long & Low (Coors + well whiskey) every day", "$2 Coors Original every Thursday"], days: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"], lat: 30.2640, lng: -97.7220 },
+  { id: "betterdays", name: "Better Days", neighborhood: "East Austin", icon: "🍺", status: "active", hours: "All day every day", address: "Verify address on site", specials: ["No happy hour needed -- drinks are cheap all day"], days: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"], lat: 30.2638, lng: -97.7222 },
+
+  // RAINEY STREET
+  { id: "7", name: "Half Step", neighborhood: "Rainey Street", icon: "🍺", status: "upcoming", hours: "4-7pm", address: "75 1/2 Rainey St", specials: ["$8 select cocktails", "$2 off draft beer"], days: ["Mon","Tue","Wed","Thu","Fri"], lat: 30.2588, lng: -97.7392 },
+  { id: "8", name: "Stagger Lee", neighborhood: "Rainey Street", icon: "🍖", status: "upcoming", hours: "3-7pm", address: "87 Rainey St", specials: ["$5 house wine & frozen drinks", "$3 domestic beers & well drinks"], days: ["Mon","Tue","Wed","Thu","Fri"], lat: 30.2585, lng: -97.7388 },
   { id: "9", name: "Banger's", neighborhood: "Rainey Street", icon: "🌭", status: "upcoming", hours: "5-6pm", address: "79 Rainey St", specials: ["$3 snacks", "$5 sausages", "$4 beer"], days: ["Mon","Tue","Wed","Thu","Fri"], lat: 30.2582, lng: -97.7385 },
-  { id: "10", name: "Crown & Anchor", neighborhood: "UT Campus", icon: "⚓", status: "active", hours: "2-7pm", address: "2911 San Jacinto Blvd", specials: ["Daily specials", "Extensive beer selection"], days: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"], lat: 30.2849, lng: -97.7341 },
-  { id: "11", name: "Black Sheep Lodge", neighborhood: "South Lamar", icon: "🍔", status: "active", hours: "All day", address: "2108 S Lamar Blvd", specials: ["Mon: $2 off TX pints", "Thu: $4 frozen margs", "Sun: $5 mimosas"], days: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"], lat: 30.2499, lng: -97.7502 },
-  { id: "12", name: "Lazarus Brewing", neighborhood: "East 6th", icon: "🍺", status: "upcoming", hours: "4-6pm", address: "1902 E 6th St", specials: ["$2 Time Machine lager", "$2 off wine/beer/frozens", "$2 bean & cheese tostadas"], days: ["Mon","Tue","Wed","Thu"], lat: 30.2628, lng: -97.7188 },
-  { id: "13", name: "Haymaker", neighborhood: "East Austin", icon: "🍸", status: "active", hours: "All day", address: "2310 Manor Rd", specials: ["All day every day specials", "Daily rotating deals"], days: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"], lat: 30.2641, lng: -97.7198 },
-  { id: "14", name: "The Cavalier", neighborhood: "East Austin", icon: "🥃", status: "active", hours: "3-7pm", address: "2400 Webberville Rd", specials: ["$1 off draft beer & wine", "$3 wells", "$7 frozens"], days: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"], lat: 30.2601, lng: -97.7178 },
-  { id: "15", name: "Hotel Vegas", neighborhood: "East 6th", icon: "🎸", status: "upcoming", hours: "5-7pm", address: "1502 E 6th St", specials: ["$6 classic cocktails", "$3 well cocktails", "$2 Lone Star tallboys"], days: ["Mon","Tue","Wed","Thu","Fri"], lat: 30.2622, lng: -97.7202 },
+
+  // RED RIVER
+  { id: "5", name: "Cheer Up Charlie's", neighborhood: "Red River", icon: "🌈", status: "upcoming", hours: "6-8pm Tue-Sat, 4-10pm Sun", address: "900 Red River St", specials: ["$6 micheladas, margs & frozens", "$3 tall boys"], days: ["Tue","Wed","Thu","Fri","Sat","Sun"], lat: 30.2677, lng: -97.7362 },
   { id: "16", name: "Pelon's Tex-Mex", neighborhood: "Red River", icon: "🌮", status: "upcoming", hours: "3-6pm", address: "802 Red River St", specials: ["$4 draft Modelo", "$6 beer-and-shot combos"], days: ["Mon","Tue","Wed","Thu","Fri"], lat: 30.2671, lng: -97.7358 },
-  { id: "17", name: "Speakeasy Austin", neighborhood: "Downtown", icon: "🎷", status: "upcoming", hours: "3-7pm", address: "412 Congress Ave", specials: ["$2 off specialty cocktails, beer & wine"], days: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"], lat: 30.2665, lng: -97.7432 },
-  { id: "18", name: "Dumont's Down Low", neighborhood: "Downtown", icon: "🥃", status: "upcoming", hours: "5-7pm", address: "214 W 4th St", specials: ["$5-7 selected cocktails", "$3 Miller Lite & Lone Stars", "$5 house wine"], days: ["Mon","Tue","Wed","Thu","Fri"], lat: 30.2672, lng: -97.7458 },
-  { id: "19", name: "Guero's Taco Bar", neighborhood: "South Congress", icon: "🌮", status: "upcoming", hours: "3-6pm", address: "1412 S Congress Ave", specials: ["$5.50 classic margaritas", "$1 off domestic beers", "$1 off nachos & queso"], days: ["Mon","Tue","Wed","Thu","Fri"], lat: 30.2499, lng: -97.7502 },
-  { id: "20", name: "Gibson Street Bar", neighborhood: "South Lamar", icon: "🍺", status: "upcoming", hours: "4-7pm", address: "1109 S Lamar Blvd", specials: ["$5 wells", "$6 tequila & bourbon", "$5 draft beers"], days: ["Mon","Tue","Wed","Thu","Fri"], lat: 30.2545, lng: -97.7535 },
-  { id: "21", name: "Sour Duck Market", neighborhood: "East Austin", icon: "🍔", status: "upcoming", hours: "3-6pm", address: "1814 E MLK Jr Blvd", specials: ["$6 single cheeseburger", "$6 palomas & daiquiris", "$3 Lone Star cans all day"], days: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"], lat: 30.2812, lng: -97.7145 },
-  { id: "22", name: "Revelry Kitchen & Bar", neighborhood: "East 6th", icon: "💽", status: "upcoming", hours: "4-7pm", address: "1410 E 6th St", specials: ["$2 off house cocktails & wines", "$1 off local beers", "$5 wells"], days: ["Tue","Wed","Thu","Fri"], lat: 30.2625, lng: -97.7195 },
-  { id: "23", name: "Il Brutto", neighborhood: "East 6th", icon: "🍕", status: "upcoming", hours: "4-6pm", address: "1601 E 6th St", specials: ["1/2 off all cocktails, wine & beer"], days: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"], lat: 30.2630, lng: -97.7192 },
-  { id: "24", name: "Clark's Oyster Bar", neighborhood: "Clarksville", icon: "🦪", status: "upcoming", hours: "3-5pm", address: "1200 W 6th St", specials: ["Half off martinis & burgers", "$5 oyster shooters & drafts"], days: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"], lat: 30.2771, lng: -97.7558 },
+  { id: "mohawk", name: "Mohawk", neighborhood: "Red River", icon: "🎸", status: "upcoming", hours: "5-8pm", address: "912 Red River St", specials: ["Happy hour 7 days a week", "60+ beers including 16 drafts", "Strong pours, under $10"], days: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"], lat: 30.2682, lng: -97.7355 },
+
+  // 6TH STREET
+  { id: "casino", name: "Casino El Camino", neighborhood: "6th Street", icon: "🎰", status: "active", hours: "11:30am-7pm", address: "517 E 6th St", specials: ["$1 off beers all day until 7pm", "Best jukebox in Austin", "Award-winning burgers"], days: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"], lat: 30.2673, lng: -97.7389 },
+  { id: "shakespeare", name: "Shakespeare's Pub", neighborhood: "6th Street", icon: "🍺", status: "upcoming", hours: "1pm open daily", address: "314 E 6th St", specials: ["Rooftop deck with downtown views", "45 beers on tap", "Verify specials on site"], days: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"], lat: 30.2672, lng: -97.7402 },
+  { id: "gnarbar", name: "Gnar Bar", neighborhood: "6th Street", icon: "🤘", status: "upcoming", hours: "Daily specials", address: "219 E 6th St", specials: ["Fri: $4 Austin Beer Works, $5 sour gummi drink", "Sat: $4 Sierra Nevada, $5 shots", "Sun: $4 Love Street & White Claws"], days: ["Fri","Sat","Sun"], lat: 30.2675, lng: -97.7408 },
+  { id: "deadrabbit", name: "The Dead Rabbit", neighborhood: "6th Street", icon: "🐇", status: "upcoming", hours: "3-6pm & 11pm-2am", address: "204 E 6th St", specials: ["$8 Guinness pints", "$2 oysters", "Late night HH 11pm-2am Sun-Thu"], days: ["Sun","Mon","Tue","Wed","Thu"], lat: 30.2673, lng: -97.7412 },
+  { id: "chupacabra", name: "Chupacabra Cantina", neighborhood: "6th Street", icon: "🌮", status: "upcoming", hours: "4-7pm", address: "315 E 6th St", specials: ["$2 Mexican cans", "$3 sangria by the glass", "$5 margaritas", "12 frozen marg flavors"], days: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"], lat: 30.2671, lng: -97.7404 },
+  { id: "sidebar", name: "Sidebar", neighborhood: "6th Street", icon: "🍺", status: "active", hours: "All day every day", address: "327 E 6th St", specials: ["No happy hour needed -- drinks are cheap all day", "Cold beer, strong pours"], days: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"], lat: 30.2672, lng: -97.7403 },
+
+  // DOWNTOWN
+  { id: "6", name: "Las Perlas", neighborhood: "Downtown", icon: "🍹", status: "upcoming", hours: "4-8pm", address: "405 E 7th St", specials: ["$4 Carta Blanca", "$7 draft margarita", "$7 draft paloma"], days: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"], lat: 30.2658, lng: -97.7415 },
+  { id: "17", name: "Speakeasy Austin", neighborhood: "Downtown", icon: "🎷", status: "upcoming", hours: "3-7pm (Mon all day)", address: "412 Congress Ave", specials: ["$2 off specialty cocktails, beer & wine"], days: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"], lat: 30.2665, lng: -97.7432 },
+  { id: "18", name: "Dumont's Down Low", neighborhood: "Downtown", icon: "🥃", status: "upcoming", hours: "5-7pm Mon-Fri, 5pm-2am Sun", address: "214 W 4th St", specials: ["$5-7 selected cocktails", "$3 Miller Lite & Lone Stars", "$5 house wine"], days: ["Mon","Tue","Wed","Thu","Fri","Sun"], lat: 30.2672, lng: -97.7458 },
+  { id: "lamberts", name: "Lambert's Downtown BBQ", neighborhood: "Downtown", icon: "🍖", status: "upcoming", hours: "3-5pm", address: "401 W 2nd St", specials: ["1/2 off bar food menu", "$2 off specialty cocktails", "$2 off drafts & wine by the glass"], days: ["Mon","Tue","Wed","Thu","Fri"], lat: 30.2683, lng: -97.7468 },
+  { id: "sanjac", name: "San Jac Saloon", neighborhood: "Downtown", icon: "🤠", status: "upcoming", hours: "Check on site", address: "310 E 6th St", specials: ["$5 well drinks", "$2 off Jack Daniels, Bacardi, Tanqueray, Lunazul & Titos"], days: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"], lat: 30.2671, lng: -97.7400 },
+
+  // CLARKSVILLE / WEST 6TH
+  { id: "24", name: "Clark's Oyster Bar", neighborhood: "Clarksville", icon: "🦪", status: "upcoming", hours: "3-5pm", address: "1200 W 6th St", specials: ["Half off burgers & martinis", "$5 oyster shooters & draft beers", "50 cents off oysters"], days: ["Mon","Tue","Wed","Thu","Fri"], lat: 30.2771, lng: -97.7558 },
   { id: "25", name: "Verbena", neighborhood: "West 6th", icon: "🍸", status: "upcoming", hours: "3-6pm", address: "612 W 6th St", specials: ["$10 flatbreads", "$2 fresh oysters", "$5 martinis", "$3 rotating beer"], days: ["Mon","Tue","Wed","Thu","Fri"], lat: 30.2745, lng: -97.7515 },
+
+  // SOUTH
+  { id: "11", name: "Black Sheep Lodge", neighborhood: "South Lamar", icon: "🍔", status: "active", hours: "All day every day", address: "2108 S Lamar Blvd", specials: ["Mon: $2 off TX pints & liquors", "Tue: $3 Mexican canned beers", "Wed: $2 12oz white trash cans", "Thu: $4 frozen margs", "Fri: $2 off TX pitchers", "Sat: $4 featured beer & $4 wells", "Sun: $5 mimosas/$4 bloodys"], days: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"], lat: 30.2499, lng: -97.7502 },
+  { id: "19", name: "Guero's Taco Bar", neighborhood: "South Congress", icon: "🌮", status: "upcoming", hours: "3-6pm", address: "1412 S Congress Ave", specials: ["$5.50 classic margaritas", "$1 off domestic beers", "$1 off nachos & queso"], days: ["Mon","Tue","Wed","Thu","Fri"], lat: 30.2499, lng: -97.7502 },
+  { id: "20", name: "Gibson Street Bar", neighborhood: "South Lamar", icon: "🍺", status: "upcoming", hours: "4-7pm", address: "1109 S Lamar Blvd", specials: ["$5 wells", "$6 El Jimador tequila", "$6 Four Roses bourbon", "$5 draft beers"], days: ["Mon","Tue","Wed","Thu","Fri"], lat: 30.2545, lng: -97.7535 },
 ];
 
 const mc = { active: "#3DD68C", upcoming: "#F5C842", ended: "#888" };
 
 const BAR_PHOTOS = {
   "🎸": "https://images.unsplash.com/photo-1543007630-9710e4a00a20?w=800&q=80",
-  "🦌": "https://images.unsplash.com/photo-1574096079513-d8259312b785?w=800&q=80",
   "🥃": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80",
   "🎵": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&q=80",
   "🍹": "https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=800&q=80",
   "🍺": "https://images.unsplash.com/photo-1537047902294-62a40c20a6ae?w=800&q=80",
   "🌭": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80",
-  "⚓": "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80",
   "🍔": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=800&q=80",
   "🍸": "https://images.unsplash.com/photo-1566633806327-68e152aaf26d?w=800&q=80",
   "🌮": "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=800&q=80",
@@ -68,7 +91,7 @@ const BAR_PHOTOS = {
 };
 const DEFAULT_PHOTO = "https://images.unsplash.com/photo-1546622891-02c72c1537b6?w=800&q=80";
 
-const NEIGHBORHOODS = ["6th Street","Rainey Street","Red River","East Austin","East 6th","West Campus","Downtown","South Congress","South Lamar","Clarksville","North Loop"];
+const NEIGHBORHOODS = ["6th Street","Rainey Street","Red River","East Austin","East 6th","West Campus","Downtown","South Congress","South Lamar","Clarksville","West 6th","North Loop"];
 
 const neighborhoodCoords = {
   "6th Street": { lat: 30.2685, lng: -97.7398 },
@@ -81,6 +104,7 @@ const neighborhoodCoords = {
   "South Congress": { lat: 30.2499, lng: -97.7502 },
   "South Lamar": { lat: 30.2545, lng: -97.7535 },
   "Clarksville": { lat: 30.2771, lng: -97.7558 },
+  "West 6th": { lat: 30.2745, lng: -97.7515 },
   "North Loop": { lat: 30.3147, lng: -97.7185 },
 };
 
@@ -218,58 +242,21 @@ export default function Home() {
         .hh-right::-webkit-scrollbar-thumb { background:rgba(212,160,23,0.3); border-radius:4px; }
         .hh-right { scrollbar-width:thin; scrollbar-color:rgba(212,160,23,0.3) transparent; }
 
-        /* Use 100svh -- accounts for browser chrome on all devices */
-        .hh-root {
-          display: flex;
-          flex-direction: column;
-          height: calc(100svh - 60px);
-          overflow: hidden;
-          background: #0D0D0D;
-        }
-
+        .hh-root { display:flex; flex-direction:column; height:calc(100svh - 60px); overflow:hidden; background:#0D0D0D; }
         .hh-body { display:flex; flex:1; overflow:hidden; min-height:0; }
+        .hh-left { width:400px; flex-shrink:0; display:flex; flex-direction:column; border-right:1px solid rgba(212,160,23,0.12); overflow:hidden; }
+        .hh-right { flex:1; min-width:0; display:flex; flex-direction:column; overflow-y:scroll; overflow-x:hidden; }
+        .hh-footer { background:#161616; border-top:1px solid rgba(212,160,23,0.2); height:56px; display:grid; grid-template-columns:1fr 1fr 1fr; align-items:center; padding:0 24px; flex-shrink:0; }
 
-        .hh-left {
-          width: 400px;
-          flex-shrink: 0;
-          display: flex;
-          flex-direction: column;
-          border-right: 1px solid rgba(212,160,23,0.12);
-          overflow: hidden;
-        }
-
-        .hh-right {
-          flex: 1;
-          min-width: 0;
-          display: flex;
-          flex-direction: column;
-          overflow-y: scroll;
-          overflow-x: hidden;
-        }
-
-        .hh-footer {
-          background: #161616;
-          border-top: 1px solid rgba(212,160,23,0.2);
-          height: 56px;
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
-          align-items: center;
-          padding: 0 24px;
-          flex-shrink: 0;
-        }
-
-        .mobile-only { display: none; }
-        .desktop-only { display: flex; }
+        .mobile-only { display:none; }
+        .desktop-only { display:flex; }
 
         @media (max-width: 768px) {
-          .mobile-only { display: flex; }
-          .desktop-only { display: none !important; }
-          .hh-footer { display: none; }
+          .mobile-only { display:flex; }
+          .desktop-only { display:none !important; }
+          .hh-footer { display:none; }
         }
-
-        @media (max-width: 1024px) and (min-width: 769px) {
-          .hh-left { width: 320px; }
-        }
+        @media (max-width: 1024px) and (min-width: 769px) { .hh-left { width:320px; } }
       `}</style>
 
       <div className="hh-root">
@@ -293,7 +280,6 @@ export default function Home() {
                 {DAY_FILTERS.map(d => <Pill key={d} active={activeDay === d} label={d} onClick={() => setActiveDay(d)} color="#3DD68C" />)}
               </div>
             </div>
-
             <div className="bar-list" style={{ flex: 1, overflowY: "scroll", padding: "8px 10px" }}>
               {filtered.length === 0 ? (
                 <div style={{ color: "#555", fontSize: "13px", padding: "16px 8px" }}>No deals match.</div>
@@ -313,7 +299,6 @@ export default function Home() {
                 </div>
               ))}
             </div>
-
             <div style={{ padding: "11px 12px", borderTop: "1px solid rgba(212,160,23,0.1)", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "space-between", background: "#0D0D0D" }}>
               <span style={{ fontSize: "12px", color: "#555" }}>Know a deal we're missing?</span>
               <a href="/submit" style={{ padding: "7px 14px", background: "#D4A017", color: "#000", borderRadius: "8px", fontSize: "12px", fontWeight: 700, textDecoration: "none" }}>+ Submit</a>
@@ -337,7 +322,6 @@ export default function Home() {
                 ))}
               </div>
             </div>
-
             <div style={{ flex: 1, position: "relative", minHeight: 0 }}>
               {isLoaded ? (
                 <GoogleMap mapContainerStyle={{ width: "100%", height: "100%" }} center={selected ? { lat: selected.lat, lng: selected.lng } : AUSTIN_CENTER} zoom={selected ? 15 : 13} options={{ styles: mapStyles, disableDefaultUI: true, zoomControl: true }} onLoad={onMapLoad}>
@@ -391,7 +375,6 @@ export default function Home() {
                 </div>
               </div>
             )}
-
             {mobileView === "list" && (
               <div style={{ flex: 1, display: "flex", flexDirection: "column", height: "100%", overflow: "hidden" }}>
                 <SearchHeader />
@@ -432,20 +415,13 @@ export default function Home() {
                 </div>
               </div>
             )}
-
-            {/* MOBILE TOGGLE */}
             <div style={{ flexShrink: 0, background: "#161616", borderTop: "1px solid rgba(212,160,23,0.15)", padding: "10px 16px", display: "flex", gap: "10px" }}>
-              <button onClick={() => setMobileView("map")} style={{ flex: 1, padding: "11px", borderRadius: "10px", border: "none", cursor: "pointer", fontWeight: 700, fontSize: "14px", background: mobileView === "map" ? "#D4A017" : "rgba(212,160,23,0.08)", color: mobileView === "map" ? "#000" : "#888" }}>
-                Map
-              </button>
-              <button onClick={() => setMobileView("list")} style={{ flex: 1, padding: "11px", borderRadius: "10px", border: "none", cursor: "pointer", fontWeight: 700, fontSize: "14px", background: mobileView === "list" ? "#D4A017" : "rgba(212,160,23,0.08)", color: mobileView === "list" ? "#000" : "#888" }}>
-                List ({filtered.length})
-              </button>
+              <button onClick={() => setMobileView("map")} style={{ flex: 1, padding: "11px", borderRadius: "10px", border: "none", cursor: "pointer", fontWeight: 700, fontSize: "14px", background: mobileView === "map" ? "#D4A017" : "rgba(212,160,23,0.08)", color: mobileView === "map" ? "#000" : "#888" }}>Map</button>
+              <button onClick={() => setMobileView("list")} style={{ flex: 1, padding: "11px", borderRadius: "10px", border: "none", cursor: "pointer", fontWeight: 700, fontSize: "14px", background: mobileView === "list" ? "#D4A017" : "rgba(212,160,23,0.08)", color: mobileView === "list" ? "#000" : "#888" }}>List ({filtered.length})</button>
             </div>
           </div>
         </div>
 
-        {/* DESKTOP FOOTER */}
         <div className="hh-footer desktop-only" style={{ display: "grid" }}>
           <div><span style={{ fontSize: "15px", fontWeight: 800, color: "#F5C842" }}>HappyHour Austin</span></div>
           <div style={{ textAlign: "center" }}><span style={{ fontSize: "12px", color: "#555" }}>Austin's best drink deals, live. &nbsp; © 2026 Created by Justin Adame</span></div>
