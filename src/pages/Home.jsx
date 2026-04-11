@@ -86,7 +86,6 @@ const BAR_PHOTOS = {
   "🌈": "https://images.unsplash.com/photo-1527090526205-beaac8dc3c62?w=800&q=80",
   "🍖": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80",
   "🦪": "https://images.unsplash.com/photo-1565680018434-b9c0d27b2e5a?w=800&q=80",
-  "🍕": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&q=80",
   "💽": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&q=80",
 };
 const DEFAULT_PHOTO = "https://images.unsplash.com/photo-1546622891-02c72c1537b6?w=800&q=80";
@@ -174,6 +173,97 @@ export default function Home() {
     }}>{label}</button>
   );
 
+  // Full detail view -- fades in over map area
+  const DetailView = () => (
+    <div style={{
+      position: "absolute", inset: 0, zIndex: 20,
+      background: "#0D0D0D",
+      animation: "fadeIn 0.2s ease",
+      display: "flex", flexDirection: "column",
+      overflowY: "auto",
+    }}>
+      {/* Hero photo */}
+      <div style={{ position: "relative", height: "220px", flexShrink: 0 }}>
+        <img
+          src={BAR_PHOTOS[selected.icon] || DEFAULT_PHOTO}
+          alt={selected.name}
+          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          onError={e => { e.target.src = DEFAULT_PHOTO; }}
+        />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(13,13,13,0.95))" }} />
+
+        {/* Back button */}
+        <button onClick={() => setSelected(null)} style={{ position: "absolute", top: "14px", left: "14px", background: "rgba(0,0,0,0.7)", border: "1px solid rgba(212,160,23,0.3)", color: "#F0EDE6", borderRadius: "8px", padding: "7px 14px", cursor: "pointer", fontSize: "12px", fontWeight: 600, display: "flex", alignItems: "center", gap: "6px" }}>
+          ← Back to map
+        </button>
+
+        {/* Status badge */}
+        <div style={{ position: "absolute", top: "14px", right: "14px", background: selected.status === "active" ? "rgba(61,214,140,0.9)" : "rgba(245,200,66,0.9)", color: "#000", borderRadius: "20px", padding: "4px 12px", fontSize: "11px", fontWeight: 700 }}>
+          {selected.status === "active" ? "LIVE NOW" : "STARTING SOON"}
+        </div>
+
+        {/* Name over photo */}
+        <div style={{ position: "absolute", bottom: "16px", left: "16px", right: "16px" }}>
+          <div style={{ fontSize: "22px", fontWeight: 900, color: "#fff", textShadow: "0 2px 8px rgba(0,0,0,0.8)" }}>
+            {selected.icon} {selected.name}
+          </div>
+          <div style={{ fontSize: "13px", color: "rgba(255,255,255,0.7)", marginTop: "4px" }}>
+            {selected.neighborhood} · {selected.hours}
+          </div>
+        </div>
+      </div>
+
+      {/* Details */}
+      <div style={{ padding: "20px 16px", flex: 1 }}>
+        {selected.address && (
+          <div style={{ fontSize: "12px", color: "#555", marginBottom: "16px" }}>
+            📍 {selected.address}, Austin TX
+          </div>
+        )}
+
+        {/* Specials */}
+        <div style={{ marginBottom: "20px" }}>
+          <div style={{ fontSize: "10px", fontWeight: 700, color: "#D4A017", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "10px" }}>Specials</div>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "7px" }}>
+            {selected.specials?.map((s, i) => (
+              <span key={i} style={{ fontSize: "12px", padding: "6px 12px", borderRadius: "20px", background: "rgba(212,160,23,0.08)", border: "1px solid rgba(212,160,23,0.2)", color: "#F5C842" }}>{s}</span>
+            ))}
+          </div>
+        </div>
+
+        {/* Days */}
+        {selected.days && (
+          <div style={{ marginBottom: "20px" }}>
+            <div style={{ fontSize: "10px", fontWeight: 700, color: "#D4A017", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "8px" }}>Days</div>
+            <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
+              {["Mon","Tue","Wed","Thu","Fri","Sat","Sun"].map(day => (
+                <span key={day} style={{ fontSize: "11px", padding: "4px 10px", borderRadius: "20px", background: selected.days.includes(day) ? "rgba(61,214,140,0.15)" : "transparent", border: `1px solid ${selected.days.includes(day) ? "rgba(61,214,140,0.4)" : "rgba(255,255,255,0.08)"}`, color: selected.days.includes(day) ? "#3DD68C" : "#444" }}>{day}</span>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Action buttons */}
+        <div style={{ display: "flex", gap: "10px", marginTop: "8px" }}>
+          <a
+            href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(selected.address + ", Austin, TX")}`}
+            target="_blank" rel="noreferrer"
+            style={{ flex: 1, padding: "13px", background: "#D4A017", color: "#000", borderRadius: "10px", fontSize: "14px", fontWeight: 700, textDecoration: "none", textAlign: "center" }}
+          >
+            Directions →
+          </a>
+          <a
+            href={`https://www.google.com/search?q=${encodeURIComponent(selected.name + " Austin TX")}`}
+            target="_blank" rel="noreferrer"
+            style={{ flex: 1, padding: "13px", background: "transparent", color: "#888", borderRadius: "10px", fontSize: "14px", fontWeight: 600, textDecoration: "none", textAlign: "center", border: "1px solid rgba(212,160,23,0.2)" }}
+          >
+            More Info
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+
   const SearchHeader = () => (
     <div style={{ padding: "10px 12px", borderBottom: "1px solid rgba(212,160,23,0.1)", background: "#0D0D0D", flexShrink: 0 }}>
       <div style={{ display: "flex", alignItems: "center", gap: "8px", background: "#161616", border: "1px solid rgba(212,160,23,0.2)", borderRadius: "8px", padding: "7px 12px", marginBottom: "8px" }}>
@@ -191,42 +281,11 @@ export default function Home() {
     </div>
   );
 
-  const DetailOverlay = () => selected ? (
-    <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, background: "#161616", borderTop: "1px solid rgba(212,160,23,0.25)", borderRadius: "14px 14px 0 0", animation: "slideUp 0.25s ease", overflow: "hidden", maxHeight: "75%", zIndex: 20 }}>
-      <div style={{ position: "relative", height: "140px" }}>
-        <img src={BAR_PHOTOS[selected.icon] || DEFAULT_PHOTO} alt={selected.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} onError={e => { e.target.src = DEFAULT_PHOTO; }} />
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(22,22,22,0.95))" }} />
-        <button onClick={() => setSelected(null)} style={{ position: "absolute", top: "10px", right: "10px", background: "rgba(0,0,0,0.65)", border: "none", color: "#fff", borderRadius: "50%", width: "28px", height: "28px", cursor: "pointer", fontSize: "13px", display: "flex", alignItems: "center", justifyContent: "center" }}>✕</button>
-        <div style={{ position: "absolute", top: "10px", left: "10px", background: selected.status === "active" ? "rgba(61,214,140,0.9)" : "rgba(245,200,66,0.9)", color: "#000", borderRadius: "20px", padding: "3px 10px", fontSize: "10px", fontWeight: 700 }}>
-          {selected.status === "active" ? "LIVE NOW" : "STARTING SOON"}
-        </div>
-        <div style={{ position: "absolute", bottom: "8px", left: "14px", right: "50px" }}>
-          <div style={{ fontSize: "15px", fontWeight: 800, color: "#fff", textShadow: "0 1px 4px rgba(0,0,0,0.9)" }}>{selected.icon} {selected.name}</div>
-          <div style={{ fontSize: "11px", color: "rgba(255,255,255,0.65)", marginTop: "2px" }}>{selected.neighborhood} · {selected.hours}</div>
-        </div>
-      </div>
-      <div style={{ padding: "14px 16px", display: "flex", gap: "16px", alignItems: "flex-start" }}>
-        <div style={{ flex: 1 }}>
-          <div style={{ fontSize: "11px", color: "#555", marginBottom: "8px" }}>{selected.address}, Austin TX</div>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "5px" }}>
-            {selected.specials?.map((s, i) => (
-              <span key={i} style={{ fontSize: "11px", padding: "4px 10px", borderRadius: "20px", background: "rgba(212,160,23,0.08)", border: "1px solid rgba(212,160,23,0.15)", color: "#F5C842" }}>{s}</span>
-            ))}
-          </div>
-        </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: "7px", flexShrink: 0 }}>
-          <a href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(selected.address + ", Austin, TX")}`} target="_blank" rel="noreferrer" style={{ padding: "9px 16px", background: "#D4A017", color: "#000", borderRadius: "8px", fontSize: "12px", fontWeight: 700, textDecoration: "none", textAlign: "center", whiteSpace: "nowrap" }}>Directions →</a>
-          <a href={`https://www.google.com/search?q=${encodeURIComponent(selected.name + " Austin TX happy hour")}`} target="_blank" rel="noreferrer" style={{ padding: "9px 16px", background: "transparent", color: "#888", borderRadius: "8px", fontSize: "12px", fontWeight: 600, textDecoration: "none", textAlign: "center", border: "1px solid rgba(212,160,23,0.2)", whiteSpace: "nowrap" }}>More Info</a>
-        </div>
-      </div>
-    </div>
-  ) : null;
-
   return (
     <>
       <style>{`
         @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
-        @keyframes slideUp { from{transform:translateY(100%);opacity:0} to{transform:translateY(0);opacity:1} }
+        @keyframes fadeIn { from{opacity:0} to{opacity:1} }
         * { box-sizing: border-box; }
 
         .pill-row { display:flex; gap:5px; overflow-x:auto; flex-wrap:nowrap; scrollbar-width:none; }
@@ -305,7 +364,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* DESKTOP RIGHT */}
+          {/* DESKTOP RIGHT -- map OR detail view */}
           <div className="hh-right desktop-only" style={{ flexDirection: "column", background: "#0D0D0D" }}>
             <div style={{ padding: "12px 14px", borderBottom: "1px solid rgba(212,160,23,0.1)", background: "#0D0D0D", position: "sticky", top: 0, zIndex: 10 }}>
               <div style={{ display: "flex", alignItems: "center", gap: "8px", background: "#161616", border: "1px solid rgba(212,160,23,0.2)", borderRadius: "8px", padding: "8px 12px", marginBottom: "9px" }}>
@@ -322,6 +381,8 @@ export default function Home() {
                 ))}
               </div>
             </div>
+
+            {/* Map area with detail view overlay */}
             <div style={{ flex: 1, position: "relative", minHeight: 0 }}>
               {isLoaded ? (
                 <GoogleMap mapContainerStyle={{ width: "100%", height: "100%" }} center={selected ? { lat: selected.lat, lng: selected.lng } : AUSTIN_CENTER} zoom={selected ? 15 : 13} options={{ styles: mapStyles, disableDefaultUI: true, zoomControl: true }} onLoad={onMapLoad}>
@@ -348,7 +409,7 @@ export default function Home() {
                   ))}
                 </div>
               )}
-              <DetailOverlay />
+              {selected && <DetailView />}
             </div>
           </div>
 
@@ -371,7 +432,7 @@ export default function Home() {
                       <div style={{ color: "#D4A017", fontSize: "12px" }}>Map loading...</div>
                     </div>
                   )}
-                  <DetailOverlay />
+                  {selected && <DetailView />}
                 </div>
               </div>
             )}
