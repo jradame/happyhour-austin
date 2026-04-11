@@ -37,7 +37,6 @@ const SEED_DEALS = [
 
   // RAINEY STREET
   { id: "7", name: "Half Step", neighborhood: "Rainey Street", icon: "🍺", status: "upcoming", hours: "4-7pm", address: "75 1/2 Rainey St", specials: ["$8 select cocktails", "$2 off draft beer"], days: ["Mon","Tue","Wed","Thu","Fri"], lat: 30.2588, lng: -97.7392 },
-  { id: "8", name: "Stagger Lee", neighborhood: "Rainey Street", icon: "🍖", status: "upcoming", hours: "3-7pm", address: "87 Rainey St", specials: ["$5 house wine & frozen drinks", "$3 domestic beers & well drinks"], days: ["Mon","Tue","Wed","Thu","Fri"], lat: 30.2585, lng: -97.7388 },
   { id: "9", name: "Banger's", neighborhood: "Rainey Street", icon: "🌭", status: "upcoming", hours: "5-6pm", address: "79 Rainey St", specials: ["$3 snacks", "$5 sausages", "$4 beer"], days: ["Mon","Tue","Wed","Thu","Fri"], lat: 30.2582, lng: -97.7385 },
 
   // RED RIVER
