@@ -40,7 +40,7 @@ const SEED_DEALS = [
   { id: "9", name: "Banger's", neighborhood: "Rainey Street", icon: "🌭", status: "upcoming", hours: "5-6pm", address: "79 Rainey St", specials: ["$3 snacks", "$5 sausages", "$4 beer"], days: ["Mon","Tue","Wed","Thu","Fri"], lat: 30.2582, lng: -97.7385 },
 
   // RED RIVER
-  { id: "5", name: "Cheer Up Charlie's", neighborhood: "Red River", icon: "🌈", status: "upcoming", hours: "6-8pm Tue-Sat, 4-10pm Sun", address: "900 Red River St", specials: ["$6 micheladas, margs & frozens", "$3 tall boys"], days: ["Tue","Wed","Thu","Fri","Sat","Sun"], lat: 30.2677, lng: -97.7362 },
+  // { id: "5", name: "Cheer Up Charlie's", neighborhood: "Red River", icon: "🌈", status: "upcoming", hours: "6-8pm Tue-Sat, 4-10pm Sun", address: "900 Red River St", specials: ["$6 micheladas, margs & frozens", "$3 tall boys"], days: ["Tue","Wed","Thu","Fri","Sat","Sun"], lat: 30.2677, lng: -97.7362 },
   { id: "16", name: "Pelon's Tex-Mex", neighborhood: "Red River", icon: "🌮", status: "upcoming", hours: "3-6pm", address: "802 Red River St", specials: ["$4 draft Modelo", "$6 beer-and-shot combos"], days: ["Mon","Tue","Wed","Thu","Fri"], lat: 30.2671, lng: -97.7358 },
   { id: "mohawk", name: "Mohawk", neighborhood: "Red River", icon: "🎸", status: "upcoming", hours: "5-8pm", address: "912 Red River St", specials: ["Happy hour 7 days a week", "60+ beers including 16 drafts", "Strong pours, under $10"], days: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"], lat: 30.2682, lng: -97.7355 },
 
