@@ -36,7 +36,7 @@ export function useDeals() {
     try {
       await addDoc(collection(db, "deals"), {
         ...deal,
-        approved: false,
+        approved: true,
         status: "upcoming",
         createdAt: new Date().toISOString(),
       });
