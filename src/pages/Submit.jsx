@@ -60,9 +60,9 @@ export default function Submit() {
   };
 
   const inp = {
-    width: "100%", padding: "9px 12px", background: "#0D0D0D",
-    border: "1px solid rgba(212,160,23,0.2)", borderRadius: "8px",
-    color: "#F0EDE6", fontSize: "13px", outline: "none",
+    width: "100%", padding: "9px 12px", background: "#0F1410",
+    border: "1px solid rgba(201,104,58,0.2)", borderRadius: "8px",
+    color: "#F0E9D6", fontSize: "13px", outline: "none",
   };
 
   return (
@@ -73,8 +73,8 @@ export default function Submit() {
       <div
         onClick={e => e.stopPropagation()}
         style={{
-          background: "#161616",
-          border: "1px solid rgba(212,160,23,0.2)",
+          background: "#1A201A",
+          border: "1px solid rgba(201,104,58,0.2)",
           borderRadius: "16px",
           padding: "28px 24px",
           maxWidth: "560px",
@@ -87,25 +87,25 @@ export default function Submit() {
         }}
       >
         {/* X */}
-        <button onClick={close} style={{ position: "absolute", top: "16px", right: "16px", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(212,160,23,0.2)", borderRadius: "50%", width: "32px", height: "32px", cursor: "pointer", color: "#888", fontSize: "14px", display: "flex", alignItems: "center", justifyContent: "center" }}>✕</button>
+        <button onClick={close} style={{ position: "absolute", top: "16px", right: "16px", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(201,104,58,0.2)", borderRadius: "50%", width: "32px", height: "32px", cursor: "pointer", color: "#888", fontSize: "14px", display: "flex", alignItems: "center", justifyContent: "center" }}>✕</button>
 
         {success ? (
           <div style={{ textAlign: "center", padding: "20px 0" }}>
             <div style={{ fontSize: "44px", marginBottom: "14px" }}>🍺</div>
-            <h2 style={{ color: "#F5C842", fontSize: "20px", fontWeight: 800, marginBottom: "8px" }}>Deal submitted!</h2>
+            <h2 style={{ color: "#C9683A", fontSize: "20px", fontWeight: 800, marginBottom: "8px" }}>Deal submitted!</h2>
             <p style={{ color: "#777", fontSize: "13px", marginBottom: "24px", lineHeight: 1.7 }}>It's now live on the map. Thanks for adding to Austin's happy hour scene.</p>
-            <button onClick={close} style={{ padding: "10px 24px", background: "#D4A017", color: "#000", borderRadius: "8px", fontSize: "13px", fontWeight: 700, border: "none", cursor: "pointer" }}>
+            <button onClick={close} style={{ padding: "10px 24px", background: "#C9683A", color: "#000", borderRadius: "8px", fontSize: "13px", fontWeight: 700, border: "none", cursor: "pointer" }}>
               Back to map
             </button>
           </div>
         ) : (
           <>
             <div style={{ marginBottom: "20px", paddingRight: "40px" }}>
-              <div style={{ fontSize: "11px", fontWeight: 700, color: "#D4A017", letterSpacing: "2px", textTransform: "uppercase", marginBottom: "6px" }}>Submit a Deal</div>
-              <h1 style={{ fontSize: "24px", fontWeight: 900, color: "#F5C842", margin: "0 0 6px" }}>Know a happy hour Austin needs to know about?</h1>
+              <div style={{ fontSize: "11px", fontWeight: 700, color: "#C9683A", letterSpacing: "2px", textTransform: "uppercase", marginBottom: "6px" }}>Submit a Deal</div>
+              <h1 style={{ fontSize: "24px", fontWeight: 900, color: "#C9683A", margin: "0 0 6px" }}>Know a happy hour Austin needs to know about?</h1>
             </div>
 
-            <div style={{ height: "1px", background: "rgba(212,160,23,0.1)", marginBottom: "20px" }} />
+            <div style={{ height: "1px", background: "rgba(201,104,58,0.1)", marginBottom: "20px" }} />
 
             {error && (
               <div style={{ background: "rgba(226,75,74,0.1)", border: "1px solid rgba(226,75,74,0.3)", color: "#f87171", borderRadius: "8px", padding: "10px 13px", fontSize: "12px", marginBottom: "16px" }}>{error}</div>
@@ -148,7 +148,7 @@ export default function Submit() {
                 <Field label="Days Active">
                   <div style={{ display: "flex", gap: "5px", flexWrap: "wrap", marginTop: "4px" }}>
                     {DAYS.map(day => (
-                      <button key={day} type="button" onClick={() => toggleDay(day)} style={{ padding: "5px 11px", borderRadius: "20px", fontSize: "11px", fontWeight: 600, cursor: "pointer", border: "1px solid", background: form.days.includes(day) ? "#D4A017" : "transparent", color: form.days.includes(day) ? "#000" : "#888", borderColor: form.days.includes(day) ? "#D4A017" : "rgba(212,160,23,0.25)" }}>{day}</button>
+                      <button key={day} type="button" onClick={() => toggleDay(day)} style={{ padding: "5px 11px", borderRadius: "20px", fontSize: "11px", fontWeight: 600, cursor: "pointer", border: "1px solid", background: form.days.includes(day) ? "#C9683A" : "transparent", color: form.days.includes(day) ? "#000" : "#888", borderColor: form.days.includes(day) ? "#C9683A" : "rgba(201,104,58,0.25)" }}>{day}</button>
                     ))}
                   </div>
                 </Field>
@@ -168,12 +168,12 @@ export default function Submit() {
               <Section label="Venue Vibe">
                 <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
                   {["🍺","🍸","🎸","🤘","🦌","🍹","🥃","🍕","🎵","🌮"].map(icon => (
-                    <button key={icon} type="button" onClick={() => update("icon", icon)} style={{ width: "38px", height: "38px", borderRadius: "8px", fontSize: "18px", cursor: "pointer", border: "1px solid", background: form.icon === icon ? "rgba(212,160,23,0.15)" : "transparent", borderColor: form.icon === icon ? "#D4A017" : "rgba(212,160,23,0.2)" }}>{icon}</button>
+                    <button key={icon} type="button" onClick={() => update("icon", icon)} style={{ width: "38px", height: "38px", borderRadius: "8px", fontSize: "18px", cursor: "pointer", border: "1px solid", background: form.icon === icon ? "rgba(201,104,58,0.15)" : "transparent", borderColor: form.icon === icon ? "#C9683A" : "rgba(201,104,58,0.2)" }}>{icon}</button>
                   ))}
                 </div>
               </Section>
 
-              <button type="submit" disabled={loading} style={{ padding: "13px", background: "#D4A017", color: "#000", fontWeight: 700, fontSize: "14px", border: "none", borderRadius: "8px", cursor: "pointer", opacity: loading ? 0.7 : 1 }}>
+              <button type="submit" disabled={loading} style={{ padding: "13px", background: "#C9683A", color: "#000", fontWeight: 700, fontSize: "14px", border: "none", borderRadius: "8px", cursor: "pointer", opacity: loading ? 0.7 : 1 }}>
                 {loading ? "Submitting..." : "Submit Deal"}
               </button>
             </form>
@@ -193,7 +193,7 @@ export default function Submit() {
 function Section({ label, children }) {
   return (
     <div>
-      <div style={{ fontSize: "10px", fontWeight: 700, color: "#D4A017", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "10px" }}>{label}</div>
+      <div style={{ fontSize: "10px", fontWeight: 700, color: "#C9683A", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "10px" }}>{label}</div>
       {children}
     </div>
   );

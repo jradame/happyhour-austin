@@ -30,8 +30,8 @@ export default function About() {
       <div
         onClick={e => e.stopPropagation()}
         style={{
-          background: "#161616",
-          border: "1px solid rgba(212,160,23,0.2)",
+          background: "#1A201A",
+          border: "1px solid rgba(201,104,58,0.2)",
           borderRadius: "16px",
           padding: "32px 28px",
           maxWidth: "580px",
@@ -45,23 +45,23 @@ export default function About() {
         {/* X close button */}
         <button
           onClick={close}
-          style={{ position: "absolute", top: "16px", right: "16px", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(212,160,23,0.2)", borderRadius: "50%", width: "32px", height: "32px", cursor: "pointer", color: "#888", fontSize: "14px", display: "flex", alignItems: "center", justifyContent: "center" }}
+          style={{ position: "absolute", top: "16px", right: "16px", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(201,104,58,0.2)", borderRadius: "50%", width: "32px", height: "32px", cursor: "pointer", color: "#888", fontSize: "14px", display: "flex", alignItems: "center", justifyContent: "center" }}
         >✕</button>
 
         {/* Header */}
         <div style={{ marginBottom: "24px", paddingRight: "40px" }}>
-          <div style={{ fontSize: "11px", fontWeight: 700, color: "#D4A017", letterSpacing: "2px", textTransform: "uppercase", marginBottom: "8px" }}>About</div>
-          <h1 style={{ fontSize: "28px", fontWeight: 900, color: "#F5C842", margin: "0 0 10px", lineHeight: 1.1 }}>HappyHour Austin</h1>
+          <div style={{ fontSize: "11px", fontWeight: 700, color: "#C9683A", letterSpacing: "2px", textTransform: "uppercase", marginBottom: "8px" }}>About</div>
+          <h1 style={{ fontSize: "28px", fontWeight: 900, color: "#C9683A", margin: "0 0 10px", lineHeight: 1.1 }}>HappyHour Austin</h1>
           <p style={{ fontSize: "14px", color: "#777", lineHeight: 1.7, margin: 0 }}>
             Austin's most up-to-date happy hour finder. Built by someone who has actually worked these bars.
           </p>
         </div>
 
-        <div style={{ height: "1px", background: "rgba(212,160,23,0.1)", marginBottom: "24px" }} />
+        <div style={{ height: "1px", background: "rgba(201,104,58,0.1)", marginBottom: "24px" }} />
 
         {/* Story */}
         <div style={{ marginBottom: "24px" }}>
-          <h2 style={{ fontSize: "15px", fontWeight: 700, color: "#F0EDE6", marginBottom: "10px" }}>The Story</h2>
+          <h2 style={{ fontSize: "15px", fontWeight: 700, color: "#F0E9D6", marginBottom: "10px" }}>The Story</h2>
           <p style={{ fontSize: "13px", color: "#777", lineHeight: 1.8, marginBottom: "10px" }}>
             I'm Justin Adame -- Happy Hour -- and I've been working Austin bars since the early 2000s. Emo's, The Ritz, Liberty Bar, Jackalope, Dizzy Rooster, multiple SXSW runs. I know this scene from the inside.
           </p>
@@ -70,7 +70,7 @@ export default function About() {
           </p>
         </div>
 
-        <div style={{ height: "1px", background: "rgba(212,160,23,0.1)", marginBottom: "24px" }} />
+        <div style={{ height: "1px", background: "rgba(201,104,58,0.1)", marginBottom: "24px" }} />
 
         {/* Stats */}
         <div style={{ display: "flex", gap: "24px", flexWrap: "wrap", marginBottom: "24px" }}>
@@ -80,20 +80,20 @@ export default function About() {
             { num: "11", label: "Neighborhoods" },
           ].map(item => (
             <div key={item.label} style={{ textAlign: "center" }}>
-              <div style={{ fontSize: "26px", fontWeight: 900, color: "#D4A017" }}>{item.num}</div>
+              <div style={{ fontSize: "26px", fontWeight: 900, color: "#C9683A" }}>{item.num}</div>
               <div style={{ fontSize: "11px", color: "#555", marginTop: "2px" }}>{item.label}</div>
             </div>
           ))}
         </div>
 
-        <div style={{ height: "1px", background: "rgba(212,160,23,0.1)", marginBottom: "24px" }} />
+        <div style={{ height: "1px", background: "rgba(201,104,58,0.1)", marginBottom: "24px" }} />
 
         {/* CTA */}
         <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", alignItems: "center" }}>
-          <Link to="/submit" style={{ padding: "10px 20px", background: "#D4A017", color: "#000", borderRadius: "8px", fontSize: "13px", fontWeight: 700, textDecoration: "none" }}>
+          <Link to="/submit" style={{ padding: "10px 20px", background: "#C9683A", color: "#000", borderRadius: "8px", fontSize: "13px", fontWeight: 700, textDecoration: "none" }}>
             + Submit a Deal
           </Link>
-          <Link to="/contact" style={{ padding: "10px 20px", background: "transparent", color: "#888", borderRadius: "8px", fontSize: "13px", fontWeight: 600, textDecoration: "none", border: "1px solid rgba(212,160,23,0.2)" }}>
+          <Link to="/contact" style={{ padding: "10px 20px", background: "transparent", color: "#888", borderRadius: "8px", fontSize: "13px", fontWeight: 600, textDecoration: "none", border: "1px solid rgba(201,104,58,0.2)" }}>
             Contact
           </Link>
           <button onClick={close} style={{ marginLeft: "auto", fontSize: "12px", color: "#444", background: "transparent", border: "none", cursor: "pointer" }}>

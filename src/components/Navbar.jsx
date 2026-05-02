@@ -18,8 +18,8 @@ export default function Navbar() {
   return (
     <>
       <nav style={{
-        background: "#161616",
-        borderBottom: "1px solid rgba(212,160,23,0.25)",
+        background: "#1A201A",
+        borderBottom: "1px solid rgba(201,104,58,0.25)",
         padding: "0 24px",
         height: "60px",
         display: "flex",
@@ -32,7 +32,7 @@ export default function Navbar() {
       }}>
         {/* Brand */}
         <Link to="/" onClick={close} style={{ textDecoration: "none" }}>
-          <span style={{ fontSize: "20px", fontWeight: 800, color: "#F5C842", letterSpacing: "-0.5px" }}>HappyHour</span>
+          <span style={{ fontSize: "20px", fontWeight: 800, color: "#C9683A", letterSpacing: "-0.5px" }}>HappyHour</span>
           <span style={{ fontSize: "12px", color: "#888", marginLeft: "6px", fontWeight: 400 }}>AUSTIN</span>
         </Link>
 
@@ -42,17 +42,17 @@ export default function Navbar() {
           <Link to="/contact" style={{ color: "#888", fontSize: "13px", textDecoration: "none" }}>Contact</Link>
           {user ? (
             <>
-              <Link to="/profile" style={{ width: "34px", height: "34px", borderRadius: "50%", background: "#D4A017", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: "13px", color: "#000", textDecoration: "none" }}>
+              <Link to="/profile" style={{ width: "34px", height: "34px", borderRadius: "50%", background: "#C9683A", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: "13px", color: "#000", textDecoration: "none" }}>
                 {user.displayName ? user.displayName.charAt(0).toUpperCase() : user.email.charAt(0).toUpperCase()}
               </Link>
-              <button onClick={handleLogout} style={{ background: "transparent", border: "1px solid rgba(212,160,23,0.3)", color: "#888", padding: "6px 14px", borderRadius: "20px", fontSize: "12px", cursor: "pointer" }}>
+              <button onClick={handleLogout} style={{ background: "transparent", border: "1px solid rgba(201,104,58,0.3)", color: "#888", padding: "6px 14px", borderRadius: "20px", fontSize: "12px", cursor: "pointer" }}>
                 Log out
               </button>
             </>
           ) : (
             <>
               <Link to="/login" style={{ color: "#888", fontSize: "13px", textDecoration: "none" }}>Sign In</Link>
-              <Link to="/signup" style={{ background: "#D4A017", color: "#000", padding: "7px 16px", borderRadius: "20px", fontSize: "13px", fontWeight: 700, textDecoration: "none" }}>Sign Up</Link>
+              <Link to="/signup" style={{ background: "#C9683A", color: "#000", padding: "7px 16px", borderRadius: "20px", fontSize: "13px", fontWeight: 700, textDecoration: "none" }}>Sign Up</Link>
             </>
           )}
         </div>
@@ -61,11 +61,11 @@ export default function Navbar() {
         <button
           className="nav-hamburger"
           onClick={() => setOpen(!open)}
-          style={{ background: "transparent", border: "1px solid rgba(212,160,23,0.25)", borderRadius: "8px", padding: "8px 10px", cursor: "pointer", flexDirection: "column", gap: "5px", alignItems: "center", justifyContent: "center" }}
+          style={{ background: "transparent", border: "1px solid rgba(201,104,58,0.25)", borderRadius: "8px", padding: "8px 10px", cursor: "pointer", flexDirection: "column", gap: "5px", alignItems: "center", justifyContent: "center" }}
         >
-          <span style={{ display: "block", width: "20px", height: "2px", background: open ? "#D4A017" : "#888", borderRadius: "2px", transition: "all 0.2s", transform: open ? "rotate(45deg) translate(5px, 5px)" : "none" }} />
-          <span style={{ display: "block", width: "20px", height: "2px", background: open ? "#D4A017" : "#888", borderRadius: "2px", transition: "all 0.2s", opacity: open ? 0 : 1 }} />
-          <span style={{ display: "block", width: "20px", height: "2px", background: open ? "#D4A017" : "#888", borderRadius: "2px", transition: "all 0.2s", transform: open ? "rotate(-45deg) translate(5px, -5px)" : "none" }} />
+          <span style={{ display: "block", width: "20px", height: "2px", background: open ? "#C9683A" : "#888", borderRadius: "2px", transition: "all 0.2s", transform: open ? "rotate(45deg) translate(5px, 5px)" : "none" }} />
+          <span style={{ display: "block", width: "20px", height: "2px", background: open ? "#C9683A" : "#888", borderRadius: "2px", transition: "all 0.2s", opacity: open ? 0 : 1 }} />
+          <span style={{ display: "block", width: "20px", height: "2px", background: open ? "#C9683A" : "#888", borderRadius: "2px", transition: "all 0.2s", transform: open ? "rotate(-45deg) translate(5px, -5px)" : "none" }} />
         </button>
       </nav>
 
@@ -73,11 +73,11 @@ export default function Navbar() {
       {open && (
         <>
           <div onClick={close} style={{ position: "fixed", inset: 0, zIndex: 150, background: "rgba(0,0,0,0.5)" }} />
-          <div style={{ position: "fixed", top: "60px", right: 0, width: "260px", background: "#161616", borderLeft: "1px solid rgba(212,160,23,0.2)", borderBottom: "1px solid rgba(212,160,23,0.2)", borderRadius: "0 0 0 14px", zIndex: 200, padding: "8px 0", animation: "slideDown 0.2s ease" }}>
+          <div style={{ position: "fixed", top: "60px", right: 0, width: "260px", background: "#1A201A", borderLeft: "1px solid rgba(201,104,58,0.2)", borderBottom: "1px solid rgba(201,104,58,0.2)", borderRadius: "0 0 0 14px", zIndex: 200, padding: "8px 0", animation: "slideDown 0.2s ease" }}>
             <MenuItem to="/" label="Home" onClick={close} />
             <MenuItem to="/about" label="About" onClick={close} />
             <MenuItem to="/contact" label="Contact" onClick={close} />
-            <div style={{ height: "1px", background: "rgba(212,160,23,0.1)", margin: "8px 0" }} />
+            <div style={{ height: "1px", background: "rgba(201,104,58,0.1)", margin: "8px 0" }} />
             {user ? (
               <>
                 <MenuItem to="/profile" label={`Profile (${user.displayName || user.email?.split("@")[0]})`} onClick={close} />
@@ -109,7 +109,7 @@ export default function Navbar() {
 
 function MenuItem({ to, label, onClick, gold }) {
   return (
-    <Link to={to} onClick={onClick} style={{ display: "block", padding: "13px 20px", fontSize: "14px", fontWeight: gold ? 700 : 400, color: gold ? "#D4A017" : "#C0B89A", textDecoration: "none", borderLeft: gold ? "2px solid #D4A017" : "2px solid transparent" }}>
+    <Link to={to} onClick={onClick} style={{ display: "block", padding: "13px 20px", fontSize: "14px", fontWeight: gold ? 700 : 400, color: gold ? "#C9683A" : "#C0B89A", textDecoration: "none", borderLeft: gold ? "2px solid #C9683A" : "2px solid transparent" }}>
       {label}
     </Link>
   );

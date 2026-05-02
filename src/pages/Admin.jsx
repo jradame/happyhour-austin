@@ -45,16 +45,16 @@ export default function Admin() {
   if (!user || user.uid !== ADMIN_UID) return null;
 
   return (
-    <div style={{ background: "#0D0D0D", minHeight: "calc(100svh - 60px)", padding: "32px 24px" }}>
+    <div style={{ background: "#0F1410", minHeight: "calc(100svh - 60px)", padding: "32px 24px" }}>
       <div style={{ maxWidth: "800px", margin: "0 auto" }}>
 
         {/* Header */}
         <div style={{ marginBottom: "28px" }}>
-          <div style={{ fontSize: "11px", fontWeight: 700, color: "#D4A017", letterSpacing: "2px", textTransform: "uppercase", marginBottom: "6px" }}>Admin</div>
+          <div style={{ fontSize: "11px", fontWeight: 700, color: "#C9683A", letterSpacing: "2px", textTransform: "uppercase", marginBottom: "6px" }}>Admin</div>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "12px" }}>
-            <h1 style={{ fontSize: "26px", fontWeight: 900, color: "#F5C842", margin: 0 }}>Deal Submissions</h1>
+            <h1 style={{ fontSize: "26px", fontWeight: 900, color: "#C9683A", margin: 0 }}>Deal Submissions</h1>
             {pendingCount > 0 && (
-              <div style={{ background: "rgba(61,214,140,0.12)", border: "1px solid rgba(61,214,140,0.3)", color: "#3DD68C", borderRadius: "20px", padding: "4px 14px", fontSize: "12px", fontWeight: 700 }}>
+              <div style={{ background: "rgba(143,185,150,0.12)", border: "1px solid rgba(143,185,150,0.3)", color: "#8FB996", borderRadius: "20px", padding: "4px 14px", fontSize: "12px", fontWeight: 700 }}>
                 {pendingCount} pending review
               </div>
             )}
@@ -68,7 +68,7 @@ export default function Admin() {
             { id: "approved", label: `Approved (${deals.filter(d => d.approved).length})` },
             { id: "all", label: `All (${deals.length})` },
           ].map(f => (
-            <button key={f.id} onClick={() => setFilter(f.id)} style={{ padding: "7px 16px", borderRadius: "20px", fontSize: "12px", fontWeight: 600, cursor: "pointer", border: "1px solid", background: filter === f.id ? "#D4A017" : "transparent", color: filter === f.id ? "#000" : "#777", borderColor: filter === f.id ? "#D4A017" : "rgba(212,160,23,0.2)" }}>
+            <button key={f.id} onClick={() => setFilter(f.id)} style={{ padding: "7px 16px", borderRadius: "20px", fontSize: "12px", fontWeight: 600, cursor: "pointer", border: "1px solid", background: filter === f.id ? "#C9683A" : "transparent", color: filter === f.id ? "#000" : "#777", borderColor: filter === f.id ? "#C9683A" : "rgba(201,104,58,0.2)" }}>
               {f.label}
             </button>
           ))}
@@ -80,7 +80,7 @@ export default function Admin() {
         ) : filtered.length === 0 ? (
           <div style={{ color: "#555", fontSize: "13px", padding: "24px 0" }}>No deals in this category.</div>
         ) : filtered.map(deal => (
-          <div key={deal.id} style={{ background: "#161616", border: "1px solid rgba(212,160,23,0.15)", borderRadius: "12px", padding: "20px", marginBottom: "12px" }}>
+          <div key={deal.id} style={{ background: "#1A201A", border: "1px solid rgba(201,104,58,0.15)", borderRadius: "12px", padding: "20px", marginBottom: "12px" }}>
             <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "16px", flexWrap: "wrap" }}>
 
               {/* Deal info */}
@@ -88,10 +88,10 @@ export default function Admin() {
                 <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "8px" }}>
                   <span style={{ fontSize: "22px" }}>{deal.icon}</span>
                   <div>
-                    <div style={{ fontSize: "15px", fontWeight: 700, color: "#F0EDE6" }}>{deal.name}</div>
+                    <div style={{ fontSize: "15px", fontWeight: 700, color: "#F0E9D6" }}>{deal.name}</div>
                     <div style={{ fontSize: "12px", color: "#555" }}>{deal.neighborhood} · {deal.category}</div>
                   </div>
-                  <span style={{ marginLeft: "auto", fontSize: "10px", fontWeight: 700, padding: "3px 10px", borderRadius: "20px", background: deal.approved ? "rgba(61,214,140,0.12)" : "rgba(245,200,66,0.12)", color: deal.approved ? "#3DD68C" : "#F5C842", border: `1px solid ${deal.approved ? "rgba(61,214,140,0.3)" : "rgba(245,200,66,0.3)"}` }}>
+                  <span style={{ marginLeft: "auto", fontSize: "10px", fontWeight: 700, padding: "3px 10px", borderRadius: "20px", background: deal.approved ? "rgba(143,185,150,0.12)" : "rgba(201,104,58,0.12)", color: deal.approved ? "#8FB996" : "#C9683A", border: `1px solid ${deal.approved ? "rgba(143,185,150,0.3)" : "rgba(201,104,58,0.3)"}` }}>
                     {deal.approved ? "APPROVED" : "PENDING"}
                   </span>
                 </div>
@@ -99,7 +99,7 @@ export default function Admin() {
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px", marginBottom: "10px" }}>
                   <div>
                     <div style={{ fontSize: "10px", color: "#555", textTransform: "uppercase", letterSpacing: "0.8px", marginBottom: "2px" }}>Hours</div>
-                    <div style={{ fontSize: "12px", color: "#F5C842" }}>{deal.hours}</div>
+                    <div style={{ fontSize: "12px", color: "#C9683A" }}>{deal.hours}</div>
                   </div>
                   <div>
                     <div style={{ fontSize: "10px", color: "#555", textTransform: "uppercase", letterSpacing: "0.8px", marginBottom: "2px" }}>Days</div>
@@ -119,7 +119,7 @@ export default function Admin() {
 
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "5px" }}>
                   {deal.specials?.map((s, i) => (
-                    <span key={i} style={{ fontSize: "11px", padding: "3px 10px", borderRadius: "20px", background: "rgba(212,160,23,0.08)", border: "1px solid rgba(212,160,23,0.15)", color: "#F5C842" }}>{s}</span>
+                    <span key={i} style={{ fontSize: "11px", padding: "3px 10px", borderRadius: "20px", background: "rgba(201,104,58,0.08)", border: "1px solid rgba(201,104,58,0.15)", color: "#C9683A" }}>{s}</span>
                   ))}
                 </div>
               </div>
@@ -127,7 +127,7 @@ export default function Admin() {
               {/* Actions */}
               {!deal.approved && (
                 <div style={{ display: "flex", flexDirection: "column", gap: "8px", flexShrink: 0 }}>
-                  <button onClick={() => approve(deal.id)} style={{ padding: "9px 20px", background: "#3DD68C", color: "#000", borderRadius: "8px", fontSize: "12px", fontWeight: 700, border: "none", cursor: "pointer", whiteSpace: "nowrap" }}>
+                  <button onClick={() => approve(deal.id)} style={{ padding: "9px 20px", background: "#8FB996", color: "#000", borderRadius: "8px", fontSize: "12px", fontWeight: 700, border: "none", cursor: "pointer", whiteSpace: "nowrap" }}>
                     Approve
                   </button>
                   <button onClick={() => reject(deal.id)} style={{ padding: "9px 20px", background: "transparent", color: "#E24B4A", borderRadius: "8px", fontSize: "12px", fontWeight: 700, border: "1px solid rgba(226,75,74,0.4)", cursor: "pointer", whiteSpace: "nowrap" }}>

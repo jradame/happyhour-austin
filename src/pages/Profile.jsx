@@ -17,7 +17,7 @@ export default function Profile() {
 	return (
 		<div style={{
 			minHeight: "calc(100vh - 60px)",
-			background: "#0D0D0D", padding: "32px 24px"
+			background: "#0F1410", padding: "32px 24px"
 		}}>
 			<div style={{ maxWidth: "480px", margin: "0 auto" }}>
 
@@ -25,13 +25,13 @@ export default function Profile() {
 				<div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "28px" }}>
 					<div style={{
 						width: "64px", height: "64px", borderRadius: "50%",
-						background: "#D4A017", display: "flex", alignItems: "center",
+						background: "#C9683A", display: "flex", alignItems: "center",
 						justifyContent: "center", fontSize: "24px", fontWeight: 800, color: "#000"
 					}}>
 						{initials}
 					</div>
 					<div>
-						<div style={{ fontSize: "20px", fontWeight: 700, color: "#F0EDE6" }}>
+						<div style={{ fontSize: "20px", fontWeight: 700, color: "#F0E9D6" }}>
 							{user?.displayName || "Happy Hour Regular"}
 						</div>
 						<div style={{ fontSize: "13px", color: "#888", marginTop: "2px" }}>
@@ -39,8 +39,8 @@ export default function Profile() {
 						</div>
 						<div style={{
 							display: "inline-flex", alignItems: "center", gap: "5px",
-							background: "rgba(212,160,23,0.12)", border: "1px solid rgba(212,160,23,0.25)",
-							color: "#F5C842", borderRadius: "20px", padding: "3px 10px",
+							background: "rgba(201,104,58,0.12)", border: "1px solid rgba(201,104,58,0.25)",
+							color: "#C9683A", borderRadius: "20px", padding: "3px 10px",
 							fontSize: "11px", fontWeight: 600, marginTop: "6px"
 						}}>
 							Austin Local
@@ -59,10 +59,10 @@ export default function Profile() {
 						{ label: "Submitted", value: "0" },
 					].map((stat) => (
 						<div key={stat.label} style={{
-							background: "#1E1E1E", border: "1px solid rgba(212,160,23,0.2)",
+							background: "#222A22", border: "1px solid rgba(201,104,58,0.2)",
 							borderRadius: "10px", padding: "14px", textAlign: "center"
 						}}>
-							<div style={{ fontSize: "22px", fontWeight: 700, color: "#F5C842" }}>
+							<div style={{ fontSize: "22px", fontWeight: 700, color: "#C9683A" }}>
 								{stat.value}
 							</div>
 							<div style={{ fontSize: "11px", color: "#888", marginTop: "4px" }}>
@@ -75,7 +75,7 @@ export default function Profile() {
 				{/* Saved spots */}
 				<Section label="Saved Spots">
 					<div style={{
-						background: "#1E1E1E", border: "1px solid rgba(212,160,23,0.2)",
+						background: "#222A22", border: "1px solid rgba(201,104,58,0.2)",
 						borderRadius: "10px", padding: "20px", textAlign: "center"
 					}}>
 						<div style={{ fontSize: "28px", marginBottom: "8px" }}>🍺</div>
@@ -123,7 +123,7 @@ function Section({ label, children }) {
 	return (
 		<div style={{ marginBottom: "24px" }}>
 			<div style={{
-				fontSize: "11px", fontWeight: 700, color: "#D4A017",
+				fontSize: "11px", fontWeight: 700, color: "#C9683A",
 				textTransform: "uppercase", letterSpacing: "1px", marginBottom: "12px"
 			}}>
 				{label}
@@ -137,10 +137,10 @@ function SettingsRow({ label, value }) {
 	return (
 		<div style={{
 			display: "flex", justifyContent: "space-between", alignItems: "center",
-			background: "#1E1E1E", border: "1px solid rgba(212,160,23,0.2)",
+			background: "#222A22", border: "1px solid rgba(201,104,58,0.2)",
 			borderRadius: "10px", padding: "13px 16px", marginBottom: "8px"
 		}}>
-			<span style={{ fontSize: "14px", color: "#F0EDE6" }}>{label}</span>
+			<span style={{ fontSize: "14px", color: "#F0E9D6" }}>{label}</span>
 			<span style={{ fontSize: "13px", color: "#888" }}>{value}</span>
 		</div>
 	);

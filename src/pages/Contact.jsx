@@ -49,8 +49,8 @@ export default function Contact() {
 
   const inp = {
     width: "100%", padding: "10px 13px", background: "#111",
-    border: "1px solid rgba(212,160,23,0.2)", borderRadius: "8px",
-    color: "#F0EDE6", fontSize: "13px", outline: "none",
+    border: "1px solid rgba(201,104,58,0.2)", borderRadius: "8px",
+    color: "#F0E9D6", fontSize: "13px", outline: "none",
   };
 
   return (
@@ -68,8 +68,8 @@ export default function Contact() {
       <div
         onClick={e => e.stopPropagation()}
         style={{
-          background: "#161616",
-          border: "1px solid rgba(212,160,23,0.2)",
+          background: "#1A201A",
+          border: "1px solid rgba(201,104,58,0.2)",
           borderRadius: "16px",
           padding: "32px 28px",
           maxWidth: "540px",
@@ -83,29 +83,29 @@ export default function Contact() {
         {/* X close button */}
         <button
           onClick={close}
-          style={{ position: "absolute", top: "16px", right: "16px", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(212,160,23,0.2)", borderRadius: "50%", width: "32px", height: "32px", cursor: "pointer", color: "#888", fontSize: "14px", display: "flex", alignItems: "center", justifyContent: "center" }}
+          style={{ position: "absolute", top: "16px", right: "16px", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(201,104,58,0.2)", borderRadius: "50%", width: "32px", height: "32px", cursor: "pointer", color: "#888", fontSize: "14px", display: "flex", alignItems: "center", justifyContent: "center" }}
         >✕</button>
 
         {sent ? (
           <div style={{ textAlign: "center", padding: "20px 0" }}>
             <div style={{ fontSize: "44px", marginBottom: "14px" }}>🍺</div>
-            <h2 style={{ color: "#F5C842", fontSize: "20px", fontWeight: 800, marginBottom: "8px" }}>Message sent!</h2>
+            <h2 style={{ color: "#C9683A", fontSize: "20px", fontWeight: 800, marginBottom: "8px" }}>Message sent!</h2>
             <p style={{ color: "#777", fontSize: "13px", marginBottom: "24px", lineHeight: 1.7 }}>We'll get back to you soon. In the meantime, go find a happy hour.</p>
-            <button onClick={close} style={{ display: "inline-block", padding: "10px 24px", background: "#D4A017", color: "#000", borderRadius: "8px", fontSize: "13px", fontWeight: 700, border: "none", cursor: "pointer" }}>
+            <button onClick={close} style={{ display: "inline-block", padding: "10px 24px", background: "#C9683A", color: "#000", borderRadius: "8px", fontSize: "13px", fontWeight: 700, border: "none", cursor: "pointer" }}>
               Back to map
             </button>
           </div>
         ) : (
           <>
             <div style={{ marginBottom: "20px", paddingRight: "40px" }}>
-              <div style={{ fontSize: "11px", fontWeight: 700, color: "#D4A017", letterSpacing: "2px", textTransform: "uppercase", marginBottom: "8px" }}>Get in touch</div>
-              <h1 style={{ fontSize: "26px", fontWeight: 900, color: "#F5C842", margin: "0 0 8px" }}>Contact</h1>
+              <div style={{ fontSize: "11px", fontWeight: 700, color: "#C9683A", letterSpacing: "2px", textTransform: "uppercase", marginBottom: "8px" }}>Get in touch</div>
+              <h1 style={{ fontSize: "26px", fontWeight: 900, color: "#C9683A", margin: "0 0 8px" }}>Contact</h1>
               <p style={{ fontSize: "13px", color: "#777", lineHeight: 1.7, margin: 0 }}>
                 Bar owner? Press? Just want to say hi? We're all ears.
               </p>
             </div>
 
-            <div style={{ height: "1px", background: "rgba(212,160,23,0.1)", marginBottom: "20px" }} />
+            <div style={{ height: "1px", background: "rgba(201,104,58,0.1)", marginBottom: "20px" }} />
 
             {error && (
               <div style={{ background: "rgba(226,75,74,0.1)", border: "1px solid rgba(226,75,74,0.3)", color: "#f87171", borderRadius: "8px", padding: "10px 13px", fontSize: "12px", marginBottom: "16px" }}>{error}</div>
@@ -140,13 +140,13 @@ export default function Contact() {
                 <textarea value={form.message} onChange={e => update("message", e.target.value)} placeholder="Tell us what's on your mind..." rows={4} style={{ ...inp, resize: "vertical" }} required />
               </div>
 
-              <button type="submit" disabled={loading} style={{ padding: "12px", background: "#D4A017", color: "#000", fontWeight: 700, fontSize: "14px", border: "none", borderRadius: "8px", cursor: "pointer", opacity: loading ? 0.7 : 1 }}>
+              <button type="submit" disabled={loading} style={{ padding: "12px", background: "#C9683A", color: "#000", fontWeight: 700, fontSize: "14px", border: "none", borderRadius: "8px", cursor: "pointer", opacity: loading ? 0.7 : 1 }}>
                 {loading ? "Sending..." : "Send Message"}
               </button>
             </form>
 
             <div style={{ marginTop: "16px", display: "flex", gap: "12px", alignItems: "center" }}>
-              <Link to="/about" style={{ fontSize: "12px", color: "#D4A017", textDecoration: "none" }}>About</Link>
+              <Link to="/about" style={{ fontSize: "12px", color: "#C9683A", textDecoration: "none" }}>About</Link>
               <button onClick={close} style={{ marginLeft: "auto", fontSize: "12px", color: "#444", background: "transparent", border: "none", cursor: "pointer" }}>
                 Back to map →
               </button>

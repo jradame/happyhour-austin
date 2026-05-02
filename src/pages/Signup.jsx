@@ -44,13 +44,13 @@ export default function Signup() {
 		<div style={{
 			minHeight: "calc(100vh - 60px)", display: "flex",
 			alignItems: "center", justifyContent: "center",
-			background: "#0D0D0D", padding: "24px"
+			background: "#0F1410", padding: "24px"
 		}}>
 			<div style={{
-				background: "#161616", border: "1px solid rgba(212,160,23,0.25)",
+				background: "#1A201A", border: "1px solid rgba(201,104,58,0.25)",
 				borderRadius: "16px", padding: "40px 36px", width: "100%", maxWidth: "400px"
 			}}>
-				<h1 style={{ color: "#F5C842", fontSize: "26px", fontWeight: 800, marginBottom: "6px" }}>
+				<h1 style={{ color: "#C9683A", fontSize: "26px", fontWeight: 800, marginBottom: "6px" }}>
 					Create account
 				</h1>
 				<p style={{ color: "#888", fontSize: "14px", marginBottom: "28px" }}>
@@ -93,7 +93,7 @@ export default function Signup() {
 						/>
 					</Field>
 					<button type="submit" disabled={loading} style={{
-						width: "100%", padding: "12px", background: "#D4A017",
+						width: "100%", padding: "12px", background: "#C9683A",
 						color: "#000", fontWeight: 700, fontSize: "15px",
 						border: "none", borderRadius: "8px", cursor: "pointer",
 						marginTop: "8px", opacity: loading ? 0.7 : 1
@@ -108,8 +108,8 @@ export default function Signup() {
 
 				<button onClick={handleGoogle} style={{
 					width: "100%", padding: "11px", background: "transparent",
-					border: "1px solid rgba(212,160,23,0.25)", borderRadius: "8px",
-					color: "#F0EDE6", fontSize: "13px", cursor: "pointer",
+					border: "1px solid rgba(201,104,58,0.25)", borderRadius: "8px",
+					color: "#F0E9D6", fontSize: "13px", cursor: "pointer",
 					display: "flex", alignItems: "center", justifyContent: "center", gap: "10px"
 				}}>
 					<GoogleIcon />
@@ -118,7 +118,7 @@ export default function Signup() {
 
 				<p style={{ textAlign: "center", color: "#888", fontSize: "13px", marginTop: "24px" }}>
 					Already have an account?{" "}
-					<Link to="/login" style={{ color: "#F5C842", fontWeight: 600 }}>
+					<Link to="/login" style={{ color: "#C9683A", fontWeight: 600 }}>
 						Log in
 					</Link>
 				</p>
@@ -143,8 +143,8 @@ function Field({ label, children }) {
 
 const inputStyle = {
 	width: "100%", padding: "10px 14px", background: "#111",
-	border: "1px solid rgba(212,160,23,0.25)", borderRadius: "8px",
-	color: "#F0EDE6", fontSize: "14px", outline: "none", boxSizing: "border-box"
+	border: "1px solid rgba(201,104,58,0.25)", borderRadius: "8px",
+	color: "#F0E9D6", fontSize: "14px", outline: "none", boxSizing: "border-box"
 };
 
 function GoogleIcon() {

@@ -15,10 +15,10 @@ const mapStyles = [
   { featureType: "water", elementType: "geometry", stylers: [{ color: "#080808" }] },
   { featureType: "poi", stylers: [{ visibility: "off" }] },
   { featureType: "transit", stylers: [{ visibility: "off" }] },
-  { featureType: "administrative.locality", elementType: "labels.text.fill", stylers: [{ color: "#D4A017" }] },
+  { featureType: "administrative.locality", elementType: "labels.text.fill", stylers: [{ color: "#C9683A" }] },
 ];
 
-const mc = { active: "#3DD68C", upcoming: "#F5C842", ended: "#888" };
+const mc = { active: "#8FB996", upcoming: "#C9683A", ended: "#888" };
 
 const BAR_PHOTOS = {
   "🎸": "https://images.unsplash.com/photo-1543007630-9710e4a00a20?w=800&q=80",
@@ -129,13 +129,13 @@ export default function Home() {
     if (mobileView === "list") setMobileView("map");
   };
 
-  const Pill = ({ active, label, onClick, color = "#D4A017" }) => (
+  const Pill = ({ active, label, onClick, color = "#C9683A" }) => (
     <button onClick={onClick} style={{
       padding: "5px 11px", borderRadius: "20px", fontSize: "11px", fontWeight: 600,
       whiteSpace: "nowrap", cursor: "pointer", border: "1px solid", flexShrink: 0,
       background: active ? color : "transparent",
       color: active ? "#000" : "#777",
-      borderColor: active ? color : "rgba(212,160,23,0.2)",
+      borderColor: active ? color : "rgba(201,104,58,0.2)",
     }}>{label}</button>
   );
 
@@ -143,7 +143,7 @@ export default function Home() {
   const DetailView = () => (
     <div style={{
       position: "absolute", inset: 0, zIndex: 20,
-      background: "#0D0D0D",
+      background: "#0F1410",
       animation: "fadeIn 0.2s ease",
       display: "flex", flexDirection: "column",
       overflowY: "auto",
@@ -159,12 +159,12 @@ export default function Home() {
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(13,13,13,0.95))" }} />
 
         {/* Back button */}
-        <button onClick={() => setSelected(null)} style={{ position: "absolute", top: "14px", left: "14px", background: "rgba(0,0,0,0.7)", border: "1px solid rgba(212,160,23,0.3)", color: "#F0EDE6", borderRadius: "8px", padding: "7px 14px", cursor: "pointer", fontSize: "12px", fontWeight: 600, display: "flex", alignItems: "center", gap: "6px" }}>
+        <button onClick={() => setSelected(null)} style={{ position: "absolute", top: "14px", left: "14px", background: "rgba(0,0,0,0.7)", border: "1px solid rgba(201,104,58,0.3)", color: "#F0E9D6", borderRadius: "8px", padding: "7px 14px", cursor: "pointer", fontSize: "12px", fontWeight: 600, display: "flex", alignItems: "center", gap: "6px" }}>
           ← Back to map
         </button>
 
         {/* Status badge */}
-        <div style={{ position: "absolute", top: "14px", right: "14px", background: selected.status === "active" ? "rgba(61,214,140,0.9)" : "rgba(245,200,66,0.9)", color: "#000", borderRadius: "20px", padding: "4px 12px", fontSize: "11px", fontWeight: 700 }}>
+        <div style={{ position: "absolute", top: "14px", right: "14px", background: selected.status === "active" ? "rgba(143,185,150,0.9)" : "rgba(201,104,58,0.9)", color: "#000", borderRadius: "20px", padding: "4px 12px", fontSize: "11px", fontWeight: 700 }}>
           {selected.status === "active" ? "LIVE NOW" : "STARTING SOON"}
         </div>
 
@@ -189,10 +189,10 @@ export default function Home() {
 
         {/* Specials */}
         <div style={{ marginBottom: "20px" }}>
-          <div style={{ fontSize: "10px", fontWeight: 700, color: "#D4A017", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "10px" }}>Specials</div>
+          <div style={{ fontSize: "10px", fontWeight: 700, color: "#C9683A", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "10px" }}>Specials</div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "7px" }}>
             {selected.specials?.map((s, i) => (
-              <span key={i} style={{ fontSize: "12px", padding: "6px 12px", borderRadius: "20px", background: "rgba(212,160,23,0.08)", border: "1px solid rgba(212,160,23,0.2)", color: "#F5C842" }}>{s}</span>
+              <span key={i} style={{ fontSize: "12px", padding: "6px 12px", borderRadius: "20px", background: "rgba(201,104,58,0.08)", border: "1px solid rgba(201,104,58,0.2)", color: "#C9683A" }}>{s}</span>
             ))}
           </div>
         </div>
@@ -200,10 +200,10 @@ export default function Home() {
         {/* Days */}
         {selected.days && (
           <div style={{ marginBottom: "20px" }}>
-            <div style={{ fontSize: "10px", fontWeight: 700, color: "#D4A017", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "8px" }}>Days</div>
+            <div style={{ fontSize: "10px", fontWeight: 700, color: "#C9683A", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "8px" }}>Days</div>
             <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
               {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map(day => (
-                <span key={day} style={{ fontSize: "11px", padding: "4px 10px", borderRadius: "20px", background: selected.days.includes(day) ? "rgba(61,214,140,0.15)" : "transparent", border: `1px solid ${selected.days.includes(day) ? "rgba(61,214,140,0.4)" : "rgba(255,255,255,0.08)"}`, color: selected.days.includes(day) ? "#3DD68C" : "#444" }}>{day}</span>
+                <span key={day} style={{ fontSize: "11px", padding: "4px 10px", borderRadius: "20px", background: selected.days.includes(day) ? "rgba(143,185,150,0.15)" : "transparent", border: `1px solid ${selected.days.includes(day) ? "rgba(143,185,150,0.4)" : "rgba(255,255,255,0.08)"}`, color: selected.days.includes(day) ? "#8FB996" : "#444" }}>{day}</span>
               ))}
             </div>
           </div>
@@ -214,14 +214,14 @@ export default function Home() {
           <a
             href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(selected.address + ", Austin, TX")}`}
             target="_blank" rel="noreferrer"
-            style={{ flex: 1, padding: "13px", background: "#D4A017", color: "#000", borderRadius: "10px", fontSize: "14px", fontWeight: 700, textDecoration: "none", textAlign: "center" }}
+            style={{ flex: 1, padding: "13px", background: "#C9683A", color: "#000", borderRadius: "10px", fontSize: "14px", fontWeight: 700, textDecoration: "none", textAlign: "center" }}
           >
             Directions →
           </a>
           <a
             href={`https://www.google.com/search?q=${encodeURIComponent(selected.name + " Austin TX")}`}
             target="_blank" rel="noreferrer"
-            style={{ flex: 1, padding: "13px", background: "transparent", color: "#888", borderRadius: "10px", fontSize: "14px", fontWeight: 600, textDecoration: "none", textAlign: "center", border: "1px solid rgba(212,160,23,0.2)" }}
+            style={{ flex: 1, padding: "13px", background: "transparent", color: "#888", borderRadius: "10px", fontSize: "14px", fontWeight: 600, textDecoration: "none", textAlign: "center", border: "1px solid rgba(201,104,58,0.2)" }}
           >
             More Info
           </a>
@@ -231,18 +231,18 @@ export default function Home() {
   );
 
   const SearchHeader = () => (
-    <div style={{ padding: "10px 12px", borderBottom: "1px solid rgba(212,160,23,0.1)", background: "#0D0D0D", flexShrink: 0 }}>
-      <div style={{ display: "flex", alignItems: "center", gap: "8px", background: "#161616", border: "1px solid rgba(212,160,23,0.2)", borderRadius: "8px", padding: "7px 12px", marginBottom: "8px" }}>
+    <div style={{ padding: "10px 12px", borderBottom: "1px solid rgba(201,104,58,0.1)", background: "#0F1410", flexShrink: 0 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "8px", background: "#1A201A", border: "1px solid rgba(201,104,58,0.2)", borderRadius: "8px", padding: "7px 12px", marginBottom: "8px" }}>
         <span style={{ color: "#444" }}>⌕</span>
-        <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search bars or neighborhoods..." style={{ background: "transparent", border: "none", color: "#F0EDE6", fontSize: "13px", flex: 1, outline: "none" }} />
+        <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search bars or neighborhoods..." style={{ background: "transparent", border: "none", color: "#F0E9D6", fontSize: "13px", flex: 1, outline: "none" }} />
         {search && <span onClick={() => setSearch("")} style={{ color: "#444", cursor: "pointer" }}>✕</span>}
       </div>
       <div className="pill-row" style={{ marginBottom: "6px" }}>
         {TYPE_FILTERS.map(f => <Pill key={f.id} active={filter === f.id} label={f.label} onClick={() => setFilter(f.id)} />)}
       </div>
       <div className="pill-row">
-        <Pill active={activeDay === "all"} label="Every Day" onClick={() => setActiveDay("all")} color="#3DD68C" />
-        {DAY_FILTERS.map(d => <Pill key={d} active={activeDay === d} label={d} onClick={() => setActiveDay(d)} color="#3DD68C" />)}
+        <Pill active={activeDay === "all"} label="Every Day" onClick={() => setActiveDay("all")} color="#8FB996" />
+        {DAY_FILTERS.map(d => <Pill key={d} active={activeDay === d} label={d} onClick={() => setActiveDay(d)} color="#8FB996" />)}
       </div>
     </div>
   );
@@ -259,19 +259,19 @@ export default function Home() {
 
         .bar-list::-webkit-scrollbar { width:6px; }
         .bar-list::-webkit-scrollbar-track { background:rgba(255,255,255,0.03); }
-        .bar-list::-webkit-scrollbar-thumb { background:rgba(212,160,23,0.4); border-radius:4px; }
-        .bar-list { scrollbar-width:thin; scrollbar-color:rgba(212,160,23,0.4) transparent; }
+        .bar-list::-webkit-scrollbar-thumb { background:rgba(201,104,58,0.4); border-radius:4px; }
+        .bar-list { scrollbar-width:thin; scrollbar-color:rgba(201,104,58,0.4) transparent; }
 
         .hh-right::-webkit-scrollbar { width:6px; }
         .hh-right::-webkit-scrollbar-track { background:rgba(255,255,255,0.03); }
-        .hh-right::-webkit-scrollbar-thumb { background:rgba(212,160,23,0.3); border-radius:4px; }
-        .hh-right { scrollbar-width:thin; scrollbar-color:rgba(212,160,23,0.3) transparent; }
+        .hh-right::-webkit-scrollbar-thumb { background:rgba(201,104,58,0.3); border-radius:4px; }
+        .hh-right { scrollbar-width:thin; scrollbar-color:rgba(201,104,58,0.3) transparent; }
 
-        .hh-root { display:flex; flex-direction:column; height:calc(100svh - 60px); overflow:hidden; background:#0D0D0D; }
+        .hh-root { display:flex; flex-direction:column; height:calc(100svh - 60px); overflow:hidden; background:#0F1410; }
         .hh-body { display:flex; flex:1; overflow:hidden; min-height:0; }
-        .hh-left { width:400px; flex-shrink:0; display:flex; flex-direction:column; border-right:1px solid rgba(212,160,23,0.12); overflow:hidden; }
+        .hh-left { width:400px; flex-shrink:0; display:flex; flex-direction:column; border-right:1px solid rgba(201,104,58,0.12); overflow:hidden; }
         .hh-right { flex:1; min-width:0; display:flex; flex-direction:column; overflow-y:scroll; overflow-x:hidden; }
-        .hh-footer { background:#161616; border-top:1px solid rgba(212,160,23,0.2); height:56px; display:grid; grid-template-columns:1fr 1fr 1fr; align-items:center; padding:0 24px; flex-shrink:0; }
+        .hh-footer { background:#1A201A; border-top:1px solid rgba(201,104,58,0.2); height:56px; display:grid; grid-template-columns:1fr 1fr 1fr; align-items:center; padding:0 24px; flex-shrink:0; }
 
         .mobile-only { display:none; }
         .desktop-only { display:flex; }
@@ -289,10 +289,10 @@ export default function Home() {
 
           {/* DESKTOP LEFT */}
           <div className="hh-left desktop-only" style={{ flexDirection: "column" }}>
-            <div style={{ padding: "14px 12px 12px", borderBottom: "1px solid rgba(212,160,23,0.1)", flexShrink: 0, background: "#0D0D0D" }}>
+            <div style={{ padding: "14px 12px 12px", borderBottom: "1px solid rgba(201,104,58,0.1)", flexShrink: 0, background: "#0F1410" }}>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "10px" }}>
-                <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "rgba(61,214,140,0.12)", border: "1px solid rgba(61,214,140,0.25)", color: "#3DD68C", borderRadius: "20px", padding: "4px 12px", fontSize: "11px", fontWeight: 700 }}>
-                  <span style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#3DD68C", display: "inline-block", animation: "pulse 1.5s infinite" }} />
+                <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "rgba(143,185,150,0.12)", border: "1px solid rgba(143,185,150,0.25)", color: "#8FB996", borderRadius: "20px", padding: "4px 12px", fontSize: "11px", fontWeight: 700 }}>
+                  <span style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#8FB996", display: "inline-block", animation: "pulse 1.5s infinite" }} />
                   {activeCount} live now
                 </div>
                 <span style={{ fontSize: "11px", color: "#444" }}>{filtered.length} spots</span>
@@ -301,47 +301,47 @@ export default function Home() {
                 {TYPE_FILTERS.map(f => <Pill key={f.id} active={filter === f.id} label={f.label} onClick={() => setFilter(f.id)} />)}
               </div>
               <div className="pill-row">
-                <Pill active={activeDay === "all"} label="Every Day" onClick={() => setActiveDay("all")} color="#3DD68C" />
-                {DAY_FILTERS.map(d => <Pill key={d} active={activeDay === d} label={d} onClick={() => setActiveDay(d)} color="#3DD68C" />)}
+                <Pill active={activeDay === "all"} label="Every Day" onClick={() => setActiveDay("all")} color="#8FB996" />
+                {DAY_FILTERS.map(d => <Pill key={d} active={activeDay === d} label={d} onClick={() => setActiveDay(d)} color="#8FB996" />)}
               </div>
             </div>
             <div className="bar-list" style={{ flex: 1, overflowY: "scroll", padding: "8px 10px" }}>
               {filtered.length === 0 ? (
                 <div style={{ color: "#555", fontSize: "13px", padding: "16px 8px" }}>No deals match.</div>
               ) : filtered.map((deal) => (
-                <div key={deal.id} onClick={() => pick(deal)} style={{ display: "flex", alignItems: "center", gap: "12px", padding: "11px 12px", borderRadius: "10px", cursor: "pointer", marginBottom: "4px", background: selected?.id === deal.id ? "rgba(212,160,23,0.08)" : "transparent", border: `1px solid ${selected?.id === deal.id ? "rgba(212,160,23,0.4)" : "rgba(212,160,23,0.07)"}`, transition: "all 0.15s" }}>
+                <div key={deal.id} onClick={() => pick(deal)} style={{ display: "flex", alignItems: "center", gap: "12px", padding: "11px 12px", borderRadius: "10px", cursor: "pointer", marginBottom: "4px", background: selected?.id === deal.id ? "rgba(201,104,58,0.08)" : "transparent", border: `1px solid ${selected?.id === deal.id ? "rgba(201,104,58,0.4)" : "rgba(201,104,58,0.07)"}`, transition: "all 0.15s" }}>
                   <span style={{ fontSize: "20px", flexShrink: 0 }}>{deal.icon}</span>
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px" }}>
-                      <div style={{ fontSize: "13px", fontWeight: 700, color: "#F0EDE6", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{deal.name}</div>
+                      <div style={{ fontSize: "13px", fontWeight: 700, color: "#F0E9D6", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{deal.name}</div>
                       <span style={{ fontSize: "10px", fontWeight: 700, color: mc[deal.status], flexShrink: 0 }}>{deal.status === "active" ? "LIVE" : deal.status === "upcoming" ? "SOON" : "ENDED"}</span>
                     </div>
                     <div style={{ display: "flex", alignItems: "center", gap: "8px", marginTop: "3px" }}>
                       <span style={{ fontSize: "11px", color: "#555", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{deal.neighborhood}</span>
-                      <span style={{ fontSize: "11px", color: "#F5C842", flexShrink: 0, fontWeight: 600 }}>{deal.hours}</span>
+                      <span style={{ fontSize: "11px", color: "#C9683A", flexShrink: 0, fontWeight: 600 }}>{deal.hours}</span>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
-            <div style={{ padding: "11px 12px", borderTop: "1px solid rgba(212,160,23,0.1)", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "space-between", background: "#0D0D0D" }}>
+            <div style={{ padding: "11px 12px", borderTop: "1px solid rgba(201,104,58,0.1)", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "space-between", background: "#0F1410" }}>
               <span style={{ fontSize: "12px", color: "#555" }}>Know a deal we're missing?</span>
-              <a href="/submit" style={{ padding: "7px 14px", background: "#D4A017", color: "#000", borderRadius: "8px", fontSize: "12px", fontWeight: 700, textDecoration: "none" }}>+ Submit</a>
+              <a href="/submit" style={{ padding: "7px 14px", background: "#C9683A", color: "#000", borderRadius: "8px", fontSize: "12px", fontWeight: 700, textDecoration: "none" }}>+ Submit</a>
             </div>
           </div>
 
           {/* DESKTOP RIGHT - map OR detail view */}
-          <div className="hh-right desktop-only" style={{ flexDirection: "column", background: "#0D0D0D" }}>
-            <div style={{ padding: "12px 14px", borderBottom: "1px solid rgba(212,160,23,0.1)", background: "#0D0D0D", position: "sticky", top: 0, zIndex: 10 }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "8px", background: "#161616", border: "1px solid rgba(212,160,23,0.2)", borderRadius: "8px", padding: "8px 12px", marginBottom: "9px" }}>
+          <div className="hh-right desktop-only" style={{ flexDirection: "column", background: "#0F1410" }}>
+            <div style={{ padding: "12px 14px", borderBottom: "1px solid rgba(201,104,58,0.1)", background: "#0F1410", position: "sticky", top: 0, zIndex: 10 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px", background: "#1A201A", border: "1px solid rgba(201,104,58,0.2)", borderRadius: "8px", padding: "8px 12px", marginBottom: "9px" }}>
                 <span style={{ color: "#444", fontSize: "14px" }}>⌕</span>
-                <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search neighborhoods or bar names..." style={{ background: "transparent", border: "none", color: "#F0EDE6", fontSize: "13px", flex: 1, outline: "none" }} />
+                <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search neighborhoods or bar names..." style={{ background: "transparent", border: "none", color: "#F0E9D6", fontSize: "13px", flex: 1, outline: "none" }} />
                 {search && <span onClick={() => setSearch("")} style={{ color: "#444", cursor: "pointer" }}>✕</span>}
               </div>
               <div className="pill-row">
                 {NEIGHBORHOODS.map(n => (
                   <span key={n} onClick={() => { setSearch(n); const c = neighborhoodCoords[n]; if (c && map) { map.panTo(c); map.setZoom(14); } }}
-                    style={{ padding: "5px 12px", borderRadius: "20px", fontSize: "11px", fontWeight: 600, cursor: "pointer", flexShrink: 0, background: search === n ? "rgba(212,160,23,0.2)" : "rgba(212,160,23,0.05)", border: `1px solid ${search === n ? "#D4A017" : "rgba(212,160,23,0.15)"}`, color: search === n ? "#F5C842" : "#666" }}>
+                    style={{ padding: "5px 12px", borderRadius: "20px", fontSize: "11px", fontWeight: 600, cursor: "pointer", flexShrink: 0, background: search === n ? "rgba(201,104,58,0.2)" : "rgba(201,104,58,0.05)", border: `1px solid ${search === n ? "#C9683A" : "rgba(201,104,58,0.15)"}`, color: search === n ? "#C9683A" : "#666" }}>
                     {n}
                   </span>
                 ))}
@@ -361,13 +361,13 @@ export default function Home() {
               ) : (
                 <div style={{ width: "100%", height: "100%", background: "#0f1923", display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: "10px" }}>
                   <div style={{ fontSize: "32px" }}>🗺️</div>
-                  <div style={{ color: "#D4A017", fontSize: "12px" }}>Map loading...</div>
+                  <div style={{ color: "#C9683A", fontSize: "12px" }}>Map loading...</div>
                 </div>
               )}
               {!selected && (
-                <div style={{ position: "absolute", bottom: "12px", right: "12px", background: "rgba(13,13,13,0.92)", border: "1px solid rgba(212,160,23,0.2)", borderRadius: "8px", padding: "8px 12px" }}>
+                <div style={{ position: "absolute", bottom: "12px", right: "12px", background: "rgba(13,13,13,0.92)", border: "1px solid rgba(201,104,58,0.2)", borderRadius: "8px", padding: "8px 12px" }}>
                   <div style={{ color: "#555", marginBottom: "4px", fontWeight: 700, fontSize: "9px", letterSpacing: "0.8px" }}>LEGEND</div>
-                  {[{ color: "#3DD68C", label: "Live" }, { color: "#F5C842", label: "Soon" }, { color: "#888", label: "Ended" }].map(item => (
+                  {[{ color: "#8FB996", label: "Live" }, { color: "#C9683A", label: "Soon" }, { color: "#888", label: "Ended" }].map(item => (
                     <div key={item.label} style={{ display: "flex", alignItems: "center", gap: "5px", marginBottom: "3px" }}>
                       <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: item.color }} />
                       <span style={{ color: "#aaa", fontSize: "10px" }}>{item.label}</span>
@@ -380,7 +380,7 @@ export default function Home() {
           </div>
 
           {/* MOBILE */}
-          <div className="mobile-only" style={{ flex: 1, flexDirection: "column", overflow: "hidden", background: "#0D0D0D", minHeight: 0 }}>
+          <div className="mobile-only" style={{ flex: 1, flexDirection: "column", overflow: "hidden", background: "#0F1410", minHeight: 0 }}>
             {mobileView === "map" && (
               <div style={{ flex: 1, display: "flex", flexDirection: "column", height: "100%" }}>
                 <SearchHeader />
@@ -395,7 +395,7 @@ export default function Home() {
                     </GoogleMap>
                   ) : (
                     <div style={{ width: "100%", height: "100%", background: "#0f1923", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                      <div style={{ color: "#D4A017", fontSize: "12px" }}>Map loading...</div>
+                      <div style={{ color: "#C9683A", fontSize: "12px" }}>Map loading...</div>
                     </div>
                   )}
                   {selected && <DetailView />}
@@ -407,8 +407,8 @@ export default function Home() {
                 <SearchHeader />
                 <div style={{ flex: 1, overflowY: "auto", padding: "8px 12px" }}>
                   <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "8px 4px 10px" }}>
-                    <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "rgba(61,214,140,0.12)", border: "1px solid rgba(61,214,140,0.25)", color: "#3DD68C", borderRadius: "20px", padding: "4px 12px", fontSize: "11px", fontWeight: 700 }}>
-                      <span style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#3DD68C", display: "inline-block", animation: "pulse 1.5s infinite" }} />
+                    <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "rgba(143,185,150,0.12)", border: "1px solid rgba(143,185,150,0.25)", color: "#8FB996", borderRadius: "20px", padding: "4px 12px", fontSize: "11px", fontWeight: 700 }}>
+                      <span style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#8FB996", display: "inline-block", animation: "pulse 1.5s infinite" }} />
                       {activeCount} live now
                     </div>
                     <span style={{ fontSize: "11px", color: "#444" }}>{filtered.length} spots</span>
@@ -416,20 +416,20 @@ export default function Home() {
                   {filtered.length === 0 ? (
                     <div style={{ color: "#555", fontSize: "13px", padding: "16px 4px" }}>No deals match.</div>
                   ) : filtered.map((deal) => (
-                    <div key={deal.id} onClick={() => pick(deal)} style={{ display: "flex", alignItems: "center", gap: "12px", padding: "13px 12px", borderRadius: "10px", cursor: "pointer", marginBottom: "6px", background: selected?.id === deal.id ? "rgba(212,160,23,0.08)" : "#161616", border: `1px solid ${selected?.id === deal.id ? "rgba(212,160,23,0.4)" : "rgba(212,160,23,0.1)"}` }}>
+                    <div key={deal.id} onClick={() => pick(deal)} style={{ display: "flex", alignItems: "center", gap: "12px", padding: "13px 12px", borderRadius: "10px", cursor: "pointer", marginBottom: "6px", background: selected?.id === deal.id ? "rgba(201,104,58,0.08)" : "#1A201A", border: `1px solid ${selected?.id === deal.id ? "rgba(201,104,58,0.4)" : "rgba(201,104,58,0.1)"}` }}>
                       <span style={{ fontSize: "22px", flexShrink: 0 }}>{deal.icon}</span>
                       <div style={{ flex: 1, minWidth: 0 }}>
                         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px" }}>
-                          <div style={{ fontSize: "14px", fontWeight: 700, color: "#F0EDE6", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{deal.name}</div>
+                          <div style={{ fontSize: "14px", fontWeight: 700, color: "#F0E9D6", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{deal.name}</div>
                           <span style={{ fontSize: "10px", fontWeight: 700, color: mc[deal.status], flexShrink: 0 }}>{deal.status === "active" ? "LIVE" : deal.status === "upcoming" ? "SOON" : "ENDED"}</span>
                         </div>
                         <div style={{ display: "flex", gap: "8px", marginTop: "3px" }}>
                           <span style={{ fontSize: "12px", color: "#555" }}>{deal.neighborhood}</span>
-                          <span style={{ fontSize: "12px", color: "#F5C842", fontWeight: 600 }}>{deal.hours}</span>
+                          <span style={{ fontSize: "12px", color: "#C9683A", fontWeight: 600 }}>{deal.hours}</span>
                         </div>
                         <div style={{ display: "flex", gap: "5px", flexWrap: "wrap", marginTop: "6px" }}>
                           {deal.specials?.slice(0, 2).map((s, i) => (
-                            <span key={i} style={{ fontSize: "10px", padding: "2px 8px", borderRadius: "20px", background: i === 0 ? "rgba(212,160,23,0.12)" : "rgba(61,214,140,0.08)", color: i === 0 ? "#F5C842" : "#3DD68C", border: `1px solid ${i === 0 ? "rgba(212,160,23,0.2)" : "rgba(61,214,140,0.15)"}` }}>{s}</span>
+                            <span key={i} style={{ fontSize: "10px", padding: "2px 8px", borderRadius: "20px", background: i === 0 ? "rgba(201,104,58,0.12)" : "rgba(143,185,150,0.08)", color: i === 0 ? "#C9683A" : "#8FB996", border: `1px solid ${i === 0 ? "rgba(201,104,58,0.2)" : "rgba(143,185,150,0.15)"}` }}>{s}</span>
                           ))}
                         </div>
                       </div>
@@ -437,20 +437,20 @@ export default function Home() {
                   ))}
                   <div style={{ padding: "16px 4px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                     <span style={{ fontSize: "13px", color: "#555" }}>Know a deal we're missing?</span>
-                    <a href="/submit" style={{ padding: "8px 16px", background: "#D4A017", color: "#000", borderRadius: "8px", fontSize: "13px", fontWeight: 700, textDecoration: "none" }}>+ Submit</a>
+                    <a href="/submit" style={{ padding: "8px 16px", background: "#C9683A", color: "#000", borderRadius: "8px", fontSize: "13px", fontWeight: 700, textDecoration: "none" }}>+ Submit</a>
                   </div>
                 </div>
               </div>
             )}
-            <div style={{ flexShrink: 0, background: "#161616", borderTop: "1px solid rgba(212,160,23,0.15)", padding: "10px 16px", display: "flex", gap: "10px" }}>
-              <button onClick={() => setMobileView("map")} style={{ flex: 1, padding: "11px", borderRadius: "10px", border: "none", cursor: "pointer", fontWeight: 700, fontSize: "14px", background: mobileView === "map" ? "#D4A017" : "rgba(212,160,23,0.08)", color: mobileView === "map" ? "#000" : "#888" }}>Map</button>
-              <button onClick={() => setMobileView("list")} style={{ flex: 1, padding: "11px", borderRadius: "10px", border: "none", cursor: "pointer", fontWeight: 700, fontSize: "14px", background: mobileView === "list" ? "#D4A017" : "rgba(212,160,23,0.08)", color: mobileView === "list" ? "#000" : "#888" }}>List ({filtered.length})</button>
+            <div style={{ flexShrink: 0, background: "#1A201A", borderTop: "1px solid rgba(201,104,58,0.15)", padding: "10px 16px", display: "flex", gap: "10px" }}>
+              <button onClick={() => setMobileView("map")} style={{ flex: 1, padding: "11px", borderRadius: "10px", border: "none", cursor: "pointer", fontWeight: 700, fontSize: "14px", background: mobileView === "map" ? "#C9683A" : "rgba(201,104,58,0.08)", color: mobileView === "map" ? "#000" : "#888" }}>Map</button>
+              <button onClick={() => setMobileView("list")} style={{ flex: 1, padding: "11px", borderRadius: "10px", border: "none", cursor: "pointer", fontWeight: 700, fontSize: "14px", background: mobileView === "list" ? "#C9683A" : "rgba(201,104,58,0.08)", color: mobileView === "list" ? "#000" : "#888" }}>List ({filtered.length})</button>
             </div>
           </div>
         </div>
 
         <div className="hh-footer desktop-only" style={{ display: "grid" }}>
-          <div><span style={{ fontSize: "15px", fontWeight: 800, color: "#F5C842" }}>HappyHour Austin</span></div>
+          <div><span style={{ fontSize: "15px", fontWeight: 800, color: "#C9683A" }}>HappyHour Austin</span></div>
           <div style={{ textAlign: "center" }}><span style={{ fontSize: "12px", color: "#555" }}>Austin's best drink deals, live. &nbsp; © 2026 Created by Justin Adame</span></div>
           <div style={{ textAlign: "right" }}><span style={{ fontSize: "12px", color: "#444", fontStyle: "italic" }}>Drink responsibly.</span></div>
         </div>
