@@ -1,27 +1,46 @@
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --hh-gold: #D4A017;
-  --hh-amber: #F5C842;
-  --hh-dark: #0D0D0D;
-  --hh-surface: #161616;
-  --hh-text: #F0EDE6;
-  --hh-muted: #888888;
-  --hh-green: #3DD68C;
-  --hh-red: #E24B4A;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-html, body, #root {
+:root {
+  --hh-gold: #d4a017;
+  --hh-amber: #f5c842;
+  --hh-dark: #0d0d0d;
+  --hh-surface: #161616;
+  --hh-text: #f0ede6;
+  --hh-muted: #888888;
+  --hh-green: #3dd68c;
+  --hh-red: #e24b4a;
+}
+
+html,
+body,
+#root {
   height: 100%;
   overflow: hidden;
-  background: #0D0D0D;
+  background: #0d0d0d;
 }
 
 body {
-  color: #F0EDE6;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #f0ede6;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-a { color: inherit; text-decoration: none; }
-button { cursor: pointer; font-family: inherit; }
-input, textarea, select { font-family: inherit; }
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+input,
+textarea,
+select {
+  font-family: inherit;
+}
